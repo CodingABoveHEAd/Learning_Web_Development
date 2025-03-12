@@ -1,0 +1,89 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#horizontal{
+    display: flex;
+    background-color: rgb(63, 63, 63);
+    width: 100%;
+    overflow: scroll;
+    overflow-y: hidden;
+    margin-bottom: 30px;
+}
+
+.item{
+    padding: 15px 30px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+.item:hover{
+    background-color: rgb(102, 100, 100);; 
+
+}
+
+#vertical{
+    display: none;
+    margin-left: 20px;
+    box-sizing: border-box;
+    width: 200px;
+    /* animation-name: vert;
+    animation-duration: 2s; */
+    animation:  1s ease-in-out;
+}
+
+@keyframes vert{
+    from{
+        width: 0px;
+    }
+    to{
+        width: 200px;
+    }
+}
+
+@keyframes vert2{
+    from{
+        width: 200px;
+    }
+    to{
+        width: 0px;
+    }
+}
+
+
+.item1{
+    color: white;
+    background-color: rgb(42, 104, 133);
+    font-size: 18px;
+    padding: 10px;
+    border: .5px solid black;
+    cursor: pointer;
+}
+
+.item1:hover{
+    background-color:rgb(52, 140, 180); 
+}
+
+#btn{
+    margin: 15px;
+    padding: 10px;
+    margin-left: 20px;
+    cursor: pointer;
+    background-color: rgb(27, 173, 93);
+    color: white;
+    font-size: 17px;
+    border-radius: 5px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.108);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+#btn:hover{
+    background-color: rgb(43, 214, 120);
+    padding: 11px;
+    font-size: 18px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.674);
+}
