@@ -1,0 +1,29 @@
+.p{
+    background-color: chartreuse;
+    border: 3px inset rgba(201, 21, 21, 0.573);
+    margin: 20% 20%;
+    height: 170px;
+    width: 80%;
+
+}
+
+.c1{
+    background-color: rgb(131, 127, 255);
+    margin: 15px 10px;
+    height: 110px;
+    border: 2px solid black;
+}
+
+.c2{
+    background-color: rgba(238, 72, 72, 0.831);
+    height: 60px;
+    margin: 8px;
+    border: 2px solid black;
+}
+
+p{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+   
+}

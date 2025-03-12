@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>JavaScript EventListener</h1>
+
+
+    <button type="button" id="btn">Button</button>
+    <p id="demo"></p>
+    <div id="p" style="height: 150px; text-align: center;background-color: tomato;">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Quisquam minima voluptatem sit velit
+            praesentium nostrum aut odio natus eveniet! Natus repellendus quibusdam cum tenetur,
+            perferendis quaerat eos aut a maiores.</p>
+        <button type="button" onclick='startf()'>Enable</button><br><br>
+        <button type="button" onclick='stopf()'>Disable</button>
+    </div>
+    <span>Random Number: </span>
+    <span id="demo2"></span>
+    <script>
+        const x = document.getElementById('btn');
+        x.addEventListener("click", func1);
+        x.addEventListener("mouseover", func2);
+        x.addEventListener("mouseout", func3);
+
+        function func1() {
+            document.getElementById('demo').innerHTML
+                += "Button clicked" + "<br>";
+        }
+
+        function func2() {
+            document.getElementById('demo').innerHTML
+                += "mouse over" + "<br>";
+        }
+
+        function func3() {
+            document.getElementById('demo').innerHTML
+                += "Mouse out" + "<br>";
+        }
+
+
+        function func4() {
+            document.getElementById('demo2').innerHTML = Math.random();
+        }
+
+        function startf() {
+            const y = document.getElementById('p');
+            y.addEventListener("mousemove", func4);
+
+        }
+
+        function stopf() {
+            const y = document.getElementById('p');
+            y.removeEventListener("mousemove", func4);
+        }
+
+    </script>
+
+</body>
+
+</html>

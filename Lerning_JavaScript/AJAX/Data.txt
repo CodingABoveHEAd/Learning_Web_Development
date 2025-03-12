@@ -1,0 +1,3 @@
+<h1>Learning JavaScript</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure reprehenderit expedita porro repellat sequi blanditiis alias eum voluptatum quos, architecto consequatur aperiam error, eveniet laborum ipsa vitae laboriosam quaerat aliquam! Commodi fugit facere dolore voluptatibus saepe repellat voluptates assumenda quaerat debitis temporibus ab, aspernatur, at provident maxime voluptas deleniti tempore?
+</p>

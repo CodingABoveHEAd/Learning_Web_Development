@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const person = {
+            fullname: function () {
+                return this.fname +" "+ this.lname;
+            }
+        }
+        const person1 = {
+            fname: "Niloy ",
+            lname: "Chowdhury",
+            roll: "2107117",
+            Dept: "CSE"
+        };
+
+        const person2 = {
+            fname: "Siyam",
+            lname: "Khan",
+            roll: "2107120",
+            Dept: "CSE"
+        };
+        console.dir(person.fullname.call(person2));
+        const a=[3,2,1,8,6,7,4,7];
+        console.log(Math.max.apply(null,a));
+    </script>
+</body>
+
+</html>

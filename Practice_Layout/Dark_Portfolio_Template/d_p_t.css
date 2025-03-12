@@ -1,0 +1,242 @@
+body {
+    background-color: black;
+}
+
+img {
+    height: 40px;
+    width: 40px;
+    display: block;
+    padding: 15px 0px;
+}
+
+pre {
+    font-size: 20px;
+}
+
+#down {
+    background-color: aliceblue;
+    color: black;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+#down:hover {
+    background-color: rgb(234, 228, 233);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.under {
+    border-bottom: 1px dotted white;
+    width: 220px;
+    padding-bottom: 20px;
+    color: aliceblue;
+    font-size: 32px;
+    font-family: "Arial, Helvetica, sans-serif";
+
+}
+
+.p {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr auto 1fr;
+    box-sizing: border-box;
+    background-color: rgb(0, 0, 0);
+    height: 2000px;
+
+}
+
+.si {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    background-color: rgba(50, 49, 49, 0.99);
+    width: 120px;
+    box-sizing: border-box;
+}
+
+.p .si .l {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.p .si .l a {
+    list-style-type: none;
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.c {
+    padding: 20px 34px;
+}
+
+.c:hover {
+    background-color: black;
+}
+
+
+.h {
+    grid-column: 2/12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-left: 100px;
+    max-width: 1200px;
+
+}
+
+.p .h img {
+    height: 50%;
+    width: 50%;
+}
+
+.co {
+    grid-column: 2/12;
+    margin-left: 100px;
+    max-width: 1200px;
+
+}
+
+.f {
+
+    grid-column: 2/12;
+    margin-left: 100px;
+    max-width: 1200px;
+}
+
+#det {
+    height: 100px;
+    width: auto;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.table {
+    box-sizing: border-box;
+    height: 600px;
+
+}
+
+.t1 {
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 45%;
+    margin: 15px;
+    height: 205px;
+    display: inline-block;
+}
+
+.t1:hover{
+    background-color: white;
+}
+
+.ba {
+    background-color: darkgray;
+    height: 70px;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    padding: 15px;
+    box-sizing: border-box;
+
+}
+
+.com,.dol,.sup {
+    font-size: large;
+    background-color: aliceblue;
+    border: 1px dotted black;
+    text-align: center;
+    padding-top: 18px;
+    height: 42px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+
+.com:hover,.dol:hover,.sup:hover{
+    background-color: white;
+}
+
+.dol {
+    padding: 0;
+    height: 100px;
+}
+
+.sup {
+    background-color: rgb(212, 223, 232);
+}
+
+.sup a {
+    background-color: white;
+    padding: 10px;
+
+}
+
+.sup a:hover {
+    background-color: black;
+    color: white;
+}
+
+.rep img{
+    height:80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+.co .photo{
+    display: grid;
+    grid-gap: 7px ;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    margin:20px;
+    
+}
+
+.co .photo img{
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+}
+
+input{
+    height: 50px;
+    width: 98.7%;
+    font-size: large;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.soc{
+    padding: 5px;
+}
+
+.soc img:hover{
+    color: white;
+    cursor: pointer;
+    
+}
+
+
+
+.but{
+border-radius: 10px; 
+    margin: 20px 0px; 
+    width: 220px;
+     font-size:20px;
+     display:flex; 
+      background-color:rgb(215, 213, 213);
+}
+.but:hover{
+   background-color: white;
+   cursor: pointer;
+}

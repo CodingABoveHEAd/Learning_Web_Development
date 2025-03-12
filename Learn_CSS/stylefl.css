@@ -1,0 +1,19 @@
+.p{
+    border: 1px solid red;
+    display: flex;
+    height: 80vh;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.c{
+    height: 12px;
+    width: 29%;
+    border: 1% solid black;
+    background-color: blueviolet;
+    margin: 1%;
+    padding:1%;
+    text-align: center;
+
+}

@@ -1,0 +1,15 @@
+div{
+    background-color: red;
+    height: 100px;
+    width:170px;
+    border: 15px solid #26833f;
+    transition: height 2s,width 2s ,border 2s;
+    transition-timing-function:ease-in-out;
+}
+
+div:hover{
+    background-color: #ffb700e6;
+    border-color: rgb(30, 30, 229);
+    width: 500px;
+    height: 500px;
+}

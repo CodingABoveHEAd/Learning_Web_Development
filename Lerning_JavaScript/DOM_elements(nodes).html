@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="div">
+        <p id="name">My name</p>
+        <p>your name</p>
+    </div>
+
+    <button onclick="create()">Create</button>
+    <button onclick="remove()">Remove</button>
+    <button onclick="replace()">replace</button>
+
+    <script>
+        function create() {
+
+            const para = document.createElement("p");
+            const node = document.createTextNode("Hello world");
+            para.appendChild(node);
+            para.id = "newpara";
+            para.style.color="red";
+            // const div=document.getElementById("div");
+            // div.append(para);
+            const div=document.getElementById("div");
+            const name = document.getElementById("name");
+            div.insertBefore(para, name);
+
+        }
+
+        function remove() {
+            const newpara = document.getElementById("newpara");
+            newpara.remove();
+        }
+
+        function replace() {
+            const para = document.createElement("p");
+            const node = document.createTextNode("Hello world(replaced)");
+            para.appendChild(node);
+
+            const div = document.getElementById("div");
+            const newpara = document.getElementById("newpara");
+            div.replaceChild(para, newpara);
+
+        }
+    </script>
+
+</body>
+
+</html>

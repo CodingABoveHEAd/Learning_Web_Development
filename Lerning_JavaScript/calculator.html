@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label for="f">Number1: </label>
+    <input id="f" type="number"  placeholder="Enter first number"><br><br>
+
+    <label for="s">Number2: </label>
+    <input id="s" type="number"  placeholder="Enter second number"><br><br>
+
+    <span>Result: </span>
+    <span id="res"></span> <br><br>
+    <script>
+
+        function number1() {
+            const num1 =Number(document.getElementById('f').value);
+            return num1;
+        }
+        function number2() {
+            const num2 =Number (document.getElementById('s').value);
+            return num2;
+        }
+        function add() {
+            return number1() + number2();
+        }
+        function sub() {
+            return number1() - number2();
+        }
+        function mul() {
+            return number1() * number2();
+        }
+        function div() {
+            return number1() / number2();
+        }
+    </script>
+
+    <button style="background-color: aqua;" type="button" onclick='document.getElementById("res").innerHTML=add()'>Addition</button>
+    <button style="background-color: rgb(255, 55, 10);" type="button" onclick='document.getElementById("res").innerHTML=sub()'>Subtraction</button>
+    <button style="background-color: rgb(0, 255, 55);" type="button" onclick='document.getElementById("res").innerHTML=div()'>Division</button>
+    <button style="background-color: rgb(243, 255, 69);" type="button" onclick='document.getElementById("res").innerHTML=mul()'>Multiplication</button>
+
+</body>
+
+</html>

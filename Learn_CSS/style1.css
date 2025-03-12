@@ -1,0 +1,43 @@
+.sub{
+    background-color: rgba(255, 0, 0, 0.797);
+    color: aliceblue;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+.sub:hover{
+    background-color: antiquewhite;
+    color: chartreuse;
+}
+.sub:focus{
+    background-color: blueviolet;
+}
+
+.sub:focus{
+    background-color: rgb(237, 19, 197);
+}
+
+ul{
+    background-color: aquamarine;
+    list-style-position: inside;
+    list-style-image: url('download.png');
+}
+
+ li{
+    background-color: bisque;
+    margin: 10px 10px;
+}
+
+div{
+    background-color: black;
+    color: cadetblue;
+    width: 40%;
+    height: 230px;
+    overflow: hidden;
+    overflow: scroll;
+}
+
+

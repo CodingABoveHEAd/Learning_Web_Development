@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="Back()">Back</button> 
+    <button onclick="Forward()">Forward</button>
+    <button onclick="Go()">Jump to page</button>
+    <button onclick="showlength()">Number of Pages</button>
+    <p id="demo"></p>
+</body>
+
+<script>
+
+    function Back(){
+        window.history.back();
+    }
+
+    function Forward(){
+        window.history.forward();
+    }
+
+    function Go(){
+        window.history.go(2);
+    }
+
+    function showlength(){
+        document.getElementById('demo').innerHTML=window.history.length;
+    }
+
+</script>
+</html>

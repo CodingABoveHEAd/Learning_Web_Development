@@ -1,0 +1,26 @@
+p{
+    display: none;
+    animation-name: par;
+    animation-duration: .5s;
+    overflow: hidden;
+
+}
+
+h2{
+    border-bottom: 1px dotted black;
+    /* background-color: red; */
+    padding: 8px;
+    cursor: pointer;
+    margin: 0;
+}
+
+h2:hover{
+    background-color: beige;
+}
+
+@keyframes par{
+    from {transform: scale(0);
+    height: 0px;} 
+    to {transform: scale(1);
+    height: 40px;}
+}

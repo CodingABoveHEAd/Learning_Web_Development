@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<body>
+    <script>
+        const animal = ["dog", "cat", "tiger", "lion", "bear"];
+        let loop1 = "", loop2 = "",loop3="";
+        for (let x in animal) {
+            loop1 += animal[x] + "<br>";
+        }
+        for (let x of animal) {
+            loop2 += x + "<br>";
+        }
+        let i=0;
+        while(animal[i] )
+        {
+            loop3+=animal[i]+"<br>";
+            i++;
+        }
+        document.getElementById('demo1').innerHTML=loop1;
+        document.getElementById('demo2').innerHTML=loop2;
+        document.getElementById('demo3').innerHTML=loop3;
+
+        console.log(3);
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+
+
+<h1>JavaScript Events:</h1>
+
+<h3>Mouse Out Over Events:</h3>
+<p id="style" style="width: 150px; height: 50px;
+color: black; background-color:  tomato;
+text-align: center; padding: 100px;"
+onmouseover="mOver()" onmouseout="mOut()">Mouse over me</p>
+
+<script>
+    function mOver()
+    {
+        const x=document.getElementById("style");
+        x.style.backgroundColor="greenyellow";
+        x.innerHTML="Thank You!!!";
+    }
+    function mOut(){
+        const x=document.getElementById("style");
+        x.style.backgroundColor="tomato";
+        x.innerHTML="Mouse Pointed";
+    }
+</script><br>
+
+
+<h3>Mouse Up Down Events:</h3>
+
+<p id="style2" style="width: 150px; height: 50px;
+color: black; background-color:  tomato;
+text-align: center; padding: 100px;"
+onmousedown="mDown(this)" onmouseup="mUp(this)">Click On me</p>
+
+
+<script>
+    function mDown(obj){
+        obj.innerHTML="Release Me";
+        obj.style.backgroundColor="yellow";
+    }
+
+    function mUp(obj){
+        obj.innerHTML="Click On Me";
+        obj.style.backgroundColor="tomato";
+    }
+</script>
+
+
+<body>
+    
+</body>
+</html>

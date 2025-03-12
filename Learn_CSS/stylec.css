@@ -1,0 +1,29 @@
+#snd {
+    height: 400px;
+    width: 400px;
+    background-color: blue;
+    margin-bottom: 5px;
+    position: relative;
+    top: 70px;
+    left: 100px;
+}
+
+#c{
+    height: 50px;
+    width:50px;
+    background-color: brown;
+    position: absolute;
+    margin-left: -25px;
+    margin-top: -25px;
+    left: 50%;
+    top: 50%;
+}
+
+#s{
+    height:70px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: cadetblue;
+}

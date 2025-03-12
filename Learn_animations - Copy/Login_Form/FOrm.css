@@ -1,0 +1,148 @@
+button{
+    color: white;
+    width: 80px;
+    height: 40px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    border-radius: 4px;
+    border: 0px;
+    cursor: pointer;
+    /* opacity: .8; */
+}
+
+#btn1{
+     background-color: rgb(43, 158, 43);
+}
+
+
+#parent{
+position: relative;
+}
+
+#formp{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.414);
+    overflow-y: auto;
+    overflow-x: hidden;
+    animation-name: fp;
+    animation-duration: .5s;
+    box-sizing: border-box;
+    /* z-index: 1; */
+}
+
+@keyframes fp{
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+#form1{
+    background-color: rgb(55, 62, 82);
+    margin-top: 150px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 150px;
+    height: 700px;
+}
+
+#form1 label{
+    color: white;
+} 
+
+
+#imgcont{
+    height: 300px;
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 55px;
+}
+
+#img1 {
+    width: 250px; 
+    height: 250px;
+    border-radius: 50%;
+    border: 3px solid rgb(43, 158, 43);
+}
+
+label{
+    font-size: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-bottom: 60px;
+    margin-left: 10px;
+}
+
+.input, #btn2{
+    display: block;
+    width: 94%;
+    padding: 7px 0px;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 18px;
+    
+}
+
+#btn2{
+    cursor: pointer;
+    color: white;
+    background-color: rgb(78, 160, 91);
+
+}
+
+span{
+    font-size: 19px;
+
+}
+
+#foot{
+    /* position: absolute;
+    bottom: 0;
+    left: 0; */
+    margin-top: 15px;
+    height: 100px;
+    background-color: rgb(217, 226, 228);
+    position: relative;
+    box-sizing: border-box;
+}
+
+#btn3{
+    background-color: rgb(228, 78, 51);
+    width: 100px;
+    height: 35px;
+    margin: 22px;
+    cursor: pointer;
+}
+
+#pass{
+    position: absolute;
+    right: 2%;
+    top: 25px;
+}
+
+@media screen and (max-width : 480px ) {
+    #img1{
+        width: 180px; 
+    height: 180px;
+    }
+   #btn3{
+    width: 82%;
+   }
+   #pass{
+    position: static;
+    display: flex;
+    justify-content: center;
+
+   }
+    #imgcont{
+        margin-bottom: 20px;
+    }
+    #form1{
+       margin-left: 0px;
+       margin-right: 0px;
+    }
+}

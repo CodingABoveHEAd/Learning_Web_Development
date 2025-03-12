@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="t">Javascript:Hello world</p>
+    <p>Click the button to change the text</p>
+    <button type="button" onclick='document.getElementById("t")
+    .innerHTML="<h2> World:Hi Javascript </h2>" '>Change text</button>
+
+    <button type="button" onclick='document.getElementById("t")
+    .style.display="none" '>Hide text</button>
+
+    <button type="button" onclick='document.getElementById("t")
+    .style.display="block" '>Display text</button>
+
+    <p id="mul"></p>
+    <p><i id="mul3"></i></p>
+    <p id="mul2"></p>
+    <p id="mul4"></p>
+
+    <script>
+        let x = 10;
+        let y = 5;
+        let z = x + y + "volvo";
+        document.getElementById('mul').innerHTML = z;
+        const person = {
+            name: "Niloy",
+            dept: "CSE",
+            roll: "2107117",
+            method: function (x, y) {
+                return x * y;
+            }
+        };
+
+        let text = "";
+        let text2 = "";
+        for (let p in person) {
+            text += person[p] + "<br>";
+        }
+        for (let [key, value] of Object.entries(person)) {
+            text2+= key + ": " + value + "<br>";
+        }
+
+        document.getElementById('mul3').innerHTML = text;
+    </script>
+
+    <button type="button" onclick='document.getElementById("mul2")
+    .innerHTML=person.method(10,8)'>Click_for_output</button>
+    
+    <button type="button" onclick='document.getElementById("mul4")
+    .innerHTML=text2'>Click_for_key_value_output</button>
+
+</body>
+
+</html>

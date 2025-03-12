@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="s"></p>
+
+    <script>
+        function person(name,age,occupation,hobby)
+        {
+            this.name=name;
+            this.age=age;
+            this.occupation=occupation;
+            this.hobby=hobby;
+        }
+        let son=new person("Niloy",22,"student","cycling");
+        let father=new person("Dipok",43,"Bussinessman","Working");
+        let mother=new person("Poly",39,"House_wife","Cooking");
+        let brother=new person("Nishan",10,"student","playing");
+
+        let text1="",text2="",text3="",text4="";
+
+        for(let [key,value] of Object.entries(son)){
+            text1+=key+": "+value+ "<br>";
+        }
+
+        for(let [key,value] of Object.entries(father)){
+            text2+=key+": "+value+ "<br>";
+        }
+
+        for(let [key,value] of Object.entries(mother)){
+            text3+=key+": "+value+ "<br>";
+        }
+
+        for(let [key,value] of Object.entries(brother)){
+            text4+=key+": "+value+ "<br>";
+        }
+        function myfunction(text)
+        {
+            document.getElementById("s").innerHTML=text;
+        }
+        Object.getOwnPropertyNames
+    </script>
+
+    <button type="button" onclick='myfunction(text1)' >Son</button>
+    <button type="button" onclick='myfunction(text2)' >Father</button>
+    <button type="button" onclick='myfunction(text3)' >Mother</button>
+    <button type="button" onclick='myfunction(text4)' >Brother</button>
+    
+</body>
+</html>

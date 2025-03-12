@@ -1,0 +1,43 @@
+div{
+    margin-bottom: 20px;
+}
+
+#p{
+    border:1px SOLID black;
+    margin: 0PX;
+    padding: 2%;
+    
+}
+
+label{
+    display:block;
+    margin-bottom: 3px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input,textarea{
+    width: 100%;
+    border: 1px solid black;
+    padding:10px;
+}
+
+#b{
+    width:200px;
+    margin-top:-20px;
+    text-align:center;
+    background-color:blueviolet;
+    color: aliceblue;
+    border: 1px solid black;
+}
+
+#b:hover{
+    cursor: pointer;
+    background-color: rgba(137, 43, 226, 0.79);
+}
+
+select{
+    display: block;
+    margin-bottom: 7px;
+    width:100%;
+    padding: 10px;
+}

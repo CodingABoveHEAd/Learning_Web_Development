@@ -1,0 +1,47 @@
+
+#p{
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
+    text-align: center;
+}
+#p li{
+    display: inline-block;
+    padding-left:25px;
+    padding-right: 25px;
+    padding-top: 9px;
+    height: 30px;
+    position: relative;
+}
+
+#p li a{
+    color: aliceblue;
+    text-decoration: none;
+
+}
+#p li:hover{
+    background-color: brown;
+}
+
+/*Dropdown menu design*/
+#p #d{
+    position: absolute;
+    background-color: rgb(67, 69, 191);
+    overflow-y: scroll;
+    left: -29px;
+    top: 38px;
+    width:224px;
+    height: 250px;
+    padding-left: 0px;
+    display: none;
+}
+
+#p #d li:hover{
+    display: block;
+    background-color: rgb(69, 109, 155);
+    color: black;
+}
+
+#h:hover #d{
+    display:block;
+}

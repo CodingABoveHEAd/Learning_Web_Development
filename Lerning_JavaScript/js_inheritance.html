@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <script>
+        class car{
+            constructor(brand){
+                this.name=brand;
+            }
+        }
+        class model extends car{
+            constructor(brand,mod){
+                super(brand);
+                this.mod=mod;
+            }
+
+            get carname(){
+                return this.name + " " + this.mod;
+            }
+
+            set carname({brand,model}){
+                this.name=brand;
+                this.mod=model;
+            }
+        }
+
+        const car1=new model("Ford","Mustang");
+        const car2=new model("BMW","i8");
+
+        document.getElementById("demo").innerHTML=car2.carname;
+        car2.carname={brand:"Lamborghini",model :"Hurracan"};
+        document.getElementById("demo1").innerHTML=car2.carname;
+
+
+    </script>
+
+    
+</body>
+</html>

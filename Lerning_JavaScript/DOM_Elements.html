@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="f">
+        <label for="">Firstname: </label>
+        <input type="text" placeholder="First"> <br><br>
+        <label for="">Lastname: </label>
+        <input type="text" placeholder="Last">
+    </form>
+
+    <script>
+      const  x=document.getElementById("f");
+      const  y=x.getElementsByTagName("label");
+      for(let i=0;i<y.length;i++){
+      console.log(y[i].innerHTML);
+      }
+
+      
+
+    </script>
+
+    <p class="c">Son</p>
+    <p class="c">Father</p>
+    <p class="c">Mother</p>
+    <p class="c">Brother</p>
+
+    <script>
+     const classes=document.getElementsByClassName("c");
+     console.log(classes[2].innerHTML);
+    </script>
+
+<div id="p">
+    <p class="c">Niloy</p>
+    <p class="c">Nishan</p>
+    <p class="c">Badhon</p>
+    <p class="c">Chandan</p>
+</div>
+
+<script>
+    const parent=document.getElementById("p");
+    const child=parent.getElementsByClassName("c");
+    for(i=0;i<child.length;i++){
+    console.log(child[i].innerHTML);
+    }
+   </script>
+
+</body>
+</html>
