@@ -63,4 +63,8 @@ button{
         height: 300px;
     }
 
+    main:hover{
+    height: 300px;
+    }
+
 } 
