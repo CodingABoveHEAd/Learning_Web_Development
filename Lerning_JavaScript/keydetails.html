@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Key Press Detector</title>
+</head>
+<body>
+
+<h3>Press any key to see its details:</h3>
+<p id="output"></p>
+
+<script>
+  document.addEventListener("keydown", function(event) {
+    document.getElementById("output").innerHTML = 
+      `Key: ${event.key} <br> Code: ${event.code} <br> KeyCode: ${event.keyCode}`;
+  });
+</script>
+
+</body>
+</html>
