@@ -1,0 +1,37 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#cont{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+    grid-gap: 3px;
+    grid-auto-flow: dense;
+    
+}
+
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.big{
+    /* height: 120px;
+    width: 120px; */
+    grid-column: span 2;
+    grid-row:span 2;
+}
+
+.var{
+    /* width: 130px;
+    height: 90px; */
+    grid-column:span 2;
+}
+
+.hor{
+    /* width: 90px;
+    height: 130px; */
+    grid-row:span 2;
+}

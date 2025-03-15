@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image_grid2t</title>
+    <link rel="stylesheet" href="Image_grid2.css">
+</head>
+
+<body>
+    <h1 style="color: white; text-align: center; font-size: 40px; border-bottom: 2px solid white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+        Responsive image galary
+    </h1>
+    <div id="parent">
+        <div class="col">
+            <div onclick="func(this)"><img src="GRID_images1/big1.jpeg"></div>
+            <div onclick="func(this)"><img src="GRID_images1/hor1.jpeg"></div>
+            <div onclick="func(this)"><img src="GRID_images1/var1.jpeg"></div>
+        </div>
+        <div class="col">
+            <div onclick="func(this)"><img src="GRID_images1/hor2.jpeg"></div>
+            <div onclick="func(this)"><img src="GRID_images1/big2.jpeg"></div>
+            <div onclick="func(this)"><img src="GRID_images1/big4.jpeg"></div>
+        </div>
+        <div class="col">
+            <div onclick="func(this)"><img src="GRID_images1/var3.jpeg"></div>
+            <div onclick="func(this)"><img src="GRID_images1/hor3.jpeg"></div>
+            <div onclick="func(this)"><img src="GRID_images1/big3.jpeg"></div>
+        </div>
+        <div class="col">
+            <div onclick="func(this)"><img src="GRID_images1/var2.jpeg"></div>
+            <div onclick="func(this)"><img src="GRID_images1/var4.jpeg"></div>
+            <div onclick="func(this)"><img src="GRID_images1/hor4.jpeg"></div>
+        </div>
+        <div id="zoom">
+            <img src="GRID_images1/Close-256.png" id="ex" onclick="fun2()" >
+            <img id="dis">
+        </div>
+    </div>
+    <script src="IMage_grid.js"></script>
+</body>
+
+</html>
