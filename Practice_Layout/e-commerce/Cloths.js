@@ -1,10 +1,10 @@
 const side = document.getElementById('side');
 const rig = document.getElementById('right');
-const ss=document.getElementsByClassName('ss');
+const ss = document.getElementsByClassName('ss');
 
 function func1(right) {
-    for(let i=0;i<ss.length;i++){
-        ss[i].style.display="block";
+    for (let i = 0; i < ss.length; i++) {
+        ss[i].style.display = "block";
     }
     right.style.display = "none";
     side.style.display = "flex";
@@ -12,10 +12,10 @@ function func1(right) {
 }
 
 function func2() {
-    
+
     side.style.animationName = "sd2";
-    for(let i=0;i<ss.length;i++){
-        ss[i].style.display="none";
+    for (let i = 0; i < ss.length; i++) {
+        ss[i].style.display = "none";
     }
     setTimeout(function () {
         side.style.display = "none";
@@ -27,30 +27,30 @@ function func2() {
 
 const slidex = document.getElementsByClassName('dis');
 
-let cntx=0,interx;
+let cntx = 0, interx;
 
 
 
-for(let i=0;i<slidex.length;i++){
-    slidex[i].style.left=`${i*100}%`;
+for (let i = 0; i < slidex.length; i++) {
+    slidex[i].style.left = `${i * 100}%`;
 }
 
 
-function slideimagex(){
-    for(let i=0;i<slidex.length;i++){
-        slidex[i].style.transform=`translateX(-${cntx * 100}%)`;
+function slideimagex() {
+    for (let i = 0; i < slidex.length; i++) {
+        slidex[i].style.transform = `translateX(-${cntx * 100}%)`;
     }
-    
+
 }
 
-function nextx(){
+function nextx() {
     cntx++;
-    cntx%=slidex.length;
+    cntx %= slidex.length;
     slideimagex();
 }
 
-function goauto(){
-     interx=setInterval(nextx,2000);
+function goauto() {
+    interx = setInterval(nextx, 2000);
 }
 
 const l3 = document.getElementById('l3');
@@ -66,7 +66,7 @@ function navbar1() {
 }
 
 function navbar2() {
- h3.style.animationName='h3pp';
+    h3.style.animationName = 'h3pp';
     setTimeout(function () {
         l33.style.display = 'none';
         l3.style.display = 'block';
@@ -76,15 +76,12 @@ function navbar2() {
 
 window.addEventListener('resize', function () {
     if (window.innerWidth > 700) {
-        // Reset to desktop state
         l3.style.display = 'none';
         l33.style.display = 'none';
         h3.style.display = 'flex';
-        // h3.style.animationName = ''; 
     } else {
         l3.style.display = 'block';
         l33.style.display = 'none';
         h3.style.display = 'none';
-        // h3.style.animationName = '';
     }
 });
