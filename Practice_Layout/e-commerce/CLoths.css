@@ -14,7 +14,7 @@ body {
     width: 75px;
     font-size: 16px;
     background-color: rgba(0, 0, 0, 0.082);
-    border: 1px solid black;
+    /* border: 1px solid black; */
     cursor: pointer;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.308);
     transition: box-shadow .3s ease-in-out;
@@ -154,7 +154,6 @@ input {
     height: max-content;
     width: 95%;
     margin: auto;
-    border: 1px solid black;
     overflow: hidden;
 
 }
@@ -241,7 +240,7 @@ input {
     justify-content: space-between;
     width: 100%;
     height:auto;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-family: "Mea Culpa", cursive;
     font-weight: 500;
     font-style: normal;
@@ -310,7 +309,7 @@ h2 {
     justify-content: space-between;
     width: max-content;
     height: 485px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .shari {
@@ -327,7 +326,7 @@ h2 {
 .det {
     /* background-color: rgba(0, 255, 234, 0.116); */
     width: auto;
-    border: .6px dotted black;
+    /* border: .6px dotted black; */
     height: inherit;
     margin-right: 3px;
     overflow: hidden;
@@ -532,7 +531,7 @@ pre {
     height: auto;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     flex-wrap: wrap;
 }
 
@@ -543,7 +542,7 @@ pre {
     align-items: center;
     height: 130px;
     width: 130px;
-    margin: 0 1.8%;
+    margin: 0px  0.1%;
     /* border: 1px solid black; */
     border-radius: 50%;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.508);
@@ -551,6 +550,8 @@ pre {
     cursor: pointer;
     /* background-color:rgba(18, 124, 223, 0.363); */
     background-color: rgba(53, 192, 65, 0.124);
+    transform: scale(0.8);
+    transform-origin: center;
 
 }
 
