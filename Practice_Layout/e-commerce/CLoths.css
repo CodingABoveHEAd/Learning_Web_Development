@@ -4,18 +4,9 @@ body {
     box-sizing: border-box;
     background-image: url('fashion/download.jpeg');
     background-repeat: no-repeat;
-    background-position: center;
     background-attachment: fixed;
     background-size: cover;
-    overflow-x: hidden;
 }
-
-main {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
 
 #bt {
     padding: 8px;
@@ -44,7 +35,7 @@ main {
     color: rgba(255, 255, 255, 0.575);
 }
 
-#side .ss a:hover {
+#side .ss a:hover,#side .ss a:focus,#side .ss a:active {
     color: white;
 }
 
@@ -52,15 +43,18 @@ main {
     position: fixed;
     top: 0;
     left: 0;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 100%;
     height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(116, 196, 233);
+    background-color: rgba(236, 232, 176, 0.609);
     font-size: 18px;
     z-index: 1;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.108);
+    transition: box-shadow 0.3s ease-in-out;
+    /* font-family: cursive; */
 }
 
 .ic {
@@ -69,6 +63,7 @@ main {
 
 #h3 {
     display: flex;
+    justify-content: space-around;
 
 }
 
@@ -81,9 +76,9 @@ main {
     height: 40px;
     width: 30px;
     position: fixed;
-    top: 200px;
+    top: 430px;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.568);
+    background-color: rgba(0, 0, 0, 0.068);
     cursor: pointer;
 }
 
@@ -234,30 +229,36 @@ input {
     }
 }
 
+#head #h2{
+    font-family:"Mea Culpa", cursive;
+    font-size: 45px;
+    color: #621f8f;
+}
 
 
 #type {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 280px;
+    height:auto;
     border: 1px solid black;
     font-family: "Mea Culpa", cursive;
     font-weight: 500;
     font-style: normal;
+    text-shadow: 0 0 10px rgb(207, 207, 207), 0 0 20px rgb(226, 226, 228); color: rgb(253, 248, 203);
 }
 
 .out2 {
 
-    height: 280px;
-    width: 240px;
+    height: auto;
+    width: 100%;
     position: relative;
     /* margin: auto 10px; */
     border: 3px solid rgb(0, 0, 0);
     cursor: pointer;
 }
 
-.in2:hover {
+.in2:hover,.in2:hover,.in2:hover {
     opacity: 0;
 }
 
@@ -278,13 +279,14 @@ input {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.379);
     color: white;
-    font-size: 25px;
+    font-size: 30px;
 
 }
 
 h1 {
     font-size: 32px;
 }
+
 
 
 h1,
@@ -552,7 +554,7 @@ pre {
 
 }
 
-.ser:hover {
+.ser:hover,.ser:focus, .ser:active  {
     background-color: rgba(53, 192, 65, 0.344);
     box-shadow: 7px 7px 18px rgba(0, 0, 0, 0.674);
 }
@@ -602,7 +604,7 @@ pre {
 
 }
 
-#btn4:hover {
+#btn4:hover,#btn4:focus,#btn4:active {
     background-color: rgba(255, 255, 255, 0.922);
 }
 
@@ -639,16 +641,38 @@ label {
 }
 
 .im1{
-    height: 350px;
-    width: 110%;
+    height: 420px;
+    width: 70%;
     overflow: hidden;
+}
+
+
+#l3{
+    height: 20px; 
+    width: 50px;
+    margin-left: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+#l33{
+    height: auto;
+    width: 35px;
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    display: none;
 }
 
 
 
 
+@media screen and (max-width:700px) {
 
-@media screen and (max-width:690px) {
+    #parent{
+        width: 100%;
+    }
 
     #disp {
         height: 600px;
@@ -661,38 +685,79 @@ label {
     #pp {
         top: 150px;
     }
-}
 
-/* #parent {
-    height: 9500px;
-    width: 95%;
-    margin: auto;
-    border: 1px solid black;
-    overflow: hidden;
+    .im1{
+        height: 250px;
+    }
 
-}
+    #type{
+        flex-wrap: wrap;
+    }
 
-#disp {
-    position: relative;
-    width: 100%;
-    max-width: inherit;
-    
-    box-shadow: 0px 0px 3px grey;
-    margin: auto;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
-/* box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9), 
-    0px 6px 6px rgba(0, 0, 0, 0.25); 
-} 
+    .out2{
+        width:100%;
+    }
 
-#abv{
+    .in2{
+        font-size: 70px;
+    }
+    #foot{
+        transform: scaleY(.7);
+        transform-origin: bottom;
+    }
 
+    #head #h2{
+        font-size: 26px;
+    }
+
+    #h3,#h1{
+        display:flex;
+        /* background-color: #1f8563; */
+    }
+
+#h3{
+    display: none;
+    margin-top: 20px;
+    width: 170px;
     position: absolute;
-    margin-top: 30px;
-    width: 95%;
-    height: 95%;
-    background-color: rgba(0, 0, 0, 0.181);
-    border: 2px solid white;
-} */
+    right: 58px;
+    animation-name: h3p;
+    animation-duration: 1s;
+}
+
+@keyframes h3p {
+    from{
+        width: 0px;
+    }
+    to{
+        width: 170px;
+    }
+    
+}
+
+@keyframes h3pp {
+    from{
+        width: 170px;
+    }
+    to{
+        width: 0px;
+    }
+    
+}
+
+    #h1{
+        display: none;
+    }
+
+    #l3{
+        display:block;
+        /* background-color: #1f8563; */
+    }
+    #l33{
+        display: none;
+    }
+    .ic{
+        padding: 0px 5px;
+    }
+}
+
