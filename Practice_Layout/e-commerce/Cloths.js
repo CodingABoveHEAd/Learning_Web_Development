@@ -73,3 +73,18 @@ function navbar2() {
         h3.style.display = 'none';
     }, 600);
 }
+
+window.addEventListener('resize', function () {
+    if (window.innerWidth > 700) {
+        // Reset to desktop state
+        l3.style.display = 'none';
+        l33.style.display = 'none';
+        h3.style.display = 'flex';
+        // h3.style.animationName = ''; 
+    } else {
+        l3.style.display = 'block';
+        l33.style.display = 'none';
+        h3.style.display = 'none';
+        // h3.style.animationName = '';
+    }
+});

@@ -762,3 +762,12 @@ label {
     }
 }
 
+@media screen and (max-width:700px) {
+    #l3{
+        display:none;
+        /* background-color: #1f8563; */
+    }
+    #l33{
+        display: none;
+    }
+}
