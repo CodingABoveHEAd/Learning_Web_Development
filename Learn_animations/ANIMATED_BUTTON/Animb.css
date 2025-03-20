@@ -1,0 +1,88 @@
+@property --color-1 {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: red;
+}
+
+
+@property --color-2 {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: blue;
+}
+
+
+
+
+#btn1{
+    --color-1: red;
+    --color-2: blue;
+    margin-top: 150px;
+    width: 300px;
+    height: 40px;
+    background: linear-gradient(90deg, var(--color-1), var(--color-2));
+    color: white;
+    font-size: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: --color-1 1s, --color-2 1s, transform 1s;
+}
+
+#btn1:hover {
+    --color-1: blue;
+    --color-2: red;
+    transform: translateY(-5px);
+}
+
+
+
+#btn2{
+    width: 300px;
+    height: 40px;
+    margin-top: 150px;
+    border-radius: 12px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    background-image: var(--gradient);
+    background-size: 300%;
+    background-position: left;
+    transition: background-position 1s;
+}
+
+:root{  
+      --gradient :linear-gradient(
+        45deg,
+        violet,
+        blue,
+        skyblue,
+        green,
+        yellow,
+        orange,
+        red
+    );
+}
+
+
+#btn2:hover,#btn2:active{
+    background-position: right;
+}
+
+body{
+    background-size: 600%;
+    min-height: 100vh;
+    background-image: var(--gradient);
+    animation: Body 40s infinite alternate;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+}
+
+@keyframes Body {
+    from{
+        background-position: left;
+    }
+    to{
+        background-position: right;
+    }
+    
+}

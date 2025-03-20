@@ -1,0 +1,78 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    text-align: center;
+}
+
+#items{
+    width: auto;
+    padding-top: 500px;
+    
+}
+
+.item{ background: linear-gradient(90deg,red,blue);
+    width: 100%;
+    height: auto;
+    animation-name: anim;
+    /* animation-duration: 5s; */
+    animation-timeline:view();
+    /* animation-range: entry; */
+    /* animation-range: entry 0% cover 40%; */
+    /* background-color: bisque; */
+}
+
+@keyframes anim{
+    from{
+        opacity:0;
+        scale: 0.5;
+        /* transform: translateX(-100px); */
+        /* clip-path: inset(100% 100% 0 0); */
+
+    }
+    to{
+        scale: 1;   
+        /* div size will be bigger from below as we scroll */
+        /* transform: translateX(0px); */
+        /* div will grow horizontally left to rigt*/
+        opacity: 1;
+        /* clip-path: inset(0 0 0 0); */
+        /* height and width will grow as scrolling */
+    }
+}
+
+.item{
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin-top:50px;
+}
+
+.it{
+    background-color: rgb(252, 121, 98);
+    width: 200px;
+    height: 400px;
+    margin: 20px;
+}
+
+.it1{
+    background-color: aqua;
+    width: 200px;
+    height: 400px;
+    margin: 20px;
+}
+
+.it2{
+    background-color: rgb(15, 218, 15);
+    width: 200px;
+    height: 400px;
+    margin: 20px;
+}
+
+
+
+
+

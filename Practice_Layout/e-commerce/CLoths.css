@@ -35,7 +35,9 @@ body {
     color: rgba(255, 255, 255, 0.575);
 }
 
-#side .ss a:hover,#side .ss a:focus,#side .ss a:active {
+#side .ss a:hover,
+#side .ss a:focus,
+#side .ss a:active {
     color: white;
 }
 
@@ -204,7 +206,7 @@ input {
 }
 
 
-#abv span{
+#abv span {
     display: block;
     text-align: center;
     position: sticky;
@@ -228,10 +230,12 @@ input {
     }
 }
 
-#head #h2{
-    font-family:"Mea Culpa", cursive;
+#head #h2 {
+    font-family: "Mea Culpa", cursive;
     font-size: 45px;
-    color: #621f8f;
+    background: linear-gradient(90deg, #ff1100, #ee0979);
+    background-clip: text;
+    color: transparent;
 }
 
 
@@ -239,12 +243,13 @@ input {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height:auto;
+    height: auto;
     /* border: 1px solid black; */
     font-family: "Mea Culpa", cursive;
     font-weight: 500;
     font-style: normal;
-    text-shadow: 0 0 10px rgb(207, 207, 207), 0 0 20px rgb(226, 226, 228); color: rgb(253, 248, 203);
+    text-shadow: 0 0 10px rgb(207, 207, 207), 0 0 20px rgb(226, 226, 228);
+    color: rgb(253, 248, 203);
 }
 
 .out2 {
@@ -257,7 +262,9 @@ input {
     cursor: pointer;
 }
 
-.in2:hover,.in2:hover,.in2:hover {
+.in2:hover,
+.in2:hover,
+.in2:hover {
     opacity: 0;
 }
 
@@ -542,7 +549,7 @@ pre {
     align-items: center;
     height: 130px;
     width: 130px;
-    margin: 0px  0.1%;
+    margin: 0px 0.1%;
     /* border: 1px solid black; */
     border-radius: 50%;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.508);
@@ -555,7 +562,9 @@ pre {
 
 }
 
-.ser:hover,.ser:focus, .ser:active  {
+.ser:hover,
+.ser:focus,
+.ser:active {
     background-color: rgba(53, 192, 65, 0.344);
     box-shadow: 7px 7px 18px rgba(0, 0, 0, 0.674);
 }
@@ -605,7 +614,9 @@ pre {
 
 }
 
-#btn4:hover,#btn4:focus,#btn4:active {
+#btn4:hover,
+#btn4:focus,
+#btn4:active {
     background-color: rgba(255, 255, 255, 0.922);
 }
 
@@ -632,7 +643,7 @@ label {
 }
 
 
-.cus{ 
+.cus {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -641,22 +652,22 @@ label {
     overflow: hidden;
 }
 
-.im1{
+.im1 {
     height: 420px;
     width: 70%;
     overflow: hidden;
 }
 
 
-#l3{
-    height: 20px; 
+#l3 {
+    height: 20px;
     width: 50px;
     margin-left: 20px;
     cursor: pointer;
     display: none;
 }
 
-#l33{
+#l33 {
     height: auto;
     width: 35px;
     margin-left: 20px;
@@ -671,7 +682,7 @@ label {
 
 @media screen and (max-width:700px) {
 
-    #parent{
+    #parent {
         width: 100%;
     }
 
@@ -687,87 +698,114 @@ label {
         top: 150px;
     }
 
-    .im1{
+    .im1 {
         height: 250px;
     }
 
-    #type{
+    #type {
         flex-wrap: wrap;
     }
 
-    .out2{
-        width:100%;
+    .out2 {
+        width: 100%;
     }
 
-    .in2{
+    .in2 {
         font-size: 70px;
     }
-    #foot{
+
+    #foot {
         transform: scaleY(.7);
         transform-origin: bottom;
     }
 
-    #head #h2{
+    #head #h2 {
         font-size: 26px;
     }
 
-    #h3,#h1{
-        display:flex;
+    #h3,
+    #h1 {
+        display: flex;
         /* background-color: #1f8563; */
     }
 
-#h3{
-    display: none;
-    margin-top: 20px;
-    width: 170px;
-    position: absolute;
-    right: 58px;
-    animation-name: h3p;
-    animation-duration: 1s;
-}
-
-@keyframes h3p {
-    from{
-        width: 0px;
-    }
-    to{
+    #h3 {
+        display: none;
+        margin-top: 20px;
         width: 170px;
+        position: absolute;
+        right: 58px;
+        animation-name: h3p;
+        animation-duration: 1s;
     }
-    
-}
 
-@keyframes h3pp {
-    from{
-        width: 170px;
-    }
-    to{
-        width: 0px;
-    }
-    
-}
+    @keyframes h3p {
+        from {
+            width: 0px;
+        }
 
-    #h1{
+        to {
+            width: 170px;
+        }
+
+    }
+
+    @keyframes h3pp {
+        from {
+            width: 170px;
+        }
+
+        to {
+            width: 0px;
+        }
+
+    }
+
+    #h1 {
         display: none;
     }
 
-    #l3{
-        display:block;
+    #l3 {
+        display: block;
         /* background-color: #1f8563; */
     }
-    #l33{
+
+    #l33 {
         display: none;
     }
-    .ic{
+
+    .ic {
         padding: 0px 5px;
     }
 }
 
 @media screen and (max-width:700px) {
-    #l3{
-        display:none;
+    #l3 {
+        display: none;
         /* background-color: #1f8563; */
     }
-    #l33{
+
+    #l33 {
         display: none;
     }
 }
+
+/* #freview,#foot,#cont,#all2,#Shari,#man,#woman,#type,#disp,#head{
+    animation-name: anim;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+@keyframes anim{
+    from{
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+} */

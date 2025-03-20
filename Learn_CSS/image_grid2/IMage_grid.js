@@ -16,5 +16,4 @@ function fun2(){
     setTimeout(function(){
         zoom.style.display="none";
     },1000);
-    console.log('hi');
 }
