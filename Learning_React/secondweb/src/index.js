@@ -25,18 +25,7 @@ const names = ["niloy", "Adit", "Siyam"];
 
 root.render(
   <React.StrictMode>
-    {/* <Clickcounter />
-    <Hovercounter />
-    <Counter render={(count,Increment)=> (
-      <Clickcounter count={count} increment={Increment} />
-    )} 
-    /> */}
-    <NoteState>
-      <Test />
-    </NoteState>
-    
-
-    {/* <User name={(isloggedin)=>(isloggedin?'Niloy':'guest')} /> */}
+  <App />
   </React.StrictMode>
 );
 
@@ -65,3 +54,6 @@ reportWebVitals();
 {
   /* <Emoji><Text /></Emoji> */
 }
+{/* <NoteState>
+      <Test />
+    </NoteState> */}
