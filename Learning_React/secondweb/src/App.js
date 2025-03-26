@@ -1,12 +1,24 @@
 import logo from './logo.svg';
-import './App.css';
-import Clock from './components/Clock';
+import Section from "./components/React_HOC/section";
+import Counter from "./components/React_HOC/counter";
+import Clickcounter from "./components/React_HOC/clickcounter";
+import React from 'react';
 
-function App() {
-  let name="niloy";
-  return (
-  <div><Clock locale="bn-BD"/>{name}</div>
+class App extends React.Component {
+
+  state={
+    theme:'dark',
+  };
+
+  render(){
+    const {theme}=this.state;
+  return(
+    <>
+      <Section  theme={theme}/>
+    </>
   );
+}
+  
 }
 
 export default App;
