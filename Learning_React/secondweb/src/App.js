@@ -10,12 +10,14 @@ import Form from "./components/UseRef/form";
 import Ref from "./components/UseRef/form2";
 import Counter from "./components/usereducer/Counter";
 import ComplexCounter from "./components/usereducer/complexounter";
+import GetPost from "./components/usereducer/GetPost";
+import GetPost2 from "./components/usereducer/GetPost2";
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <ComplexCounter />
+        <GetPost2 />
       </div>
     );
   }
