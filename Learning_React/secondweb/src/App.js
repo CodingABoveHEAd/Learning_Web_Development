@@ -12,12 +12,17 @@ import Counter from "./components/usereducer/Counter";
 import ComplexCounter from "./components/usereducer/complexounter";
 import GetPost from "./components/usereducer/GetPost";
 import GetPost2 from "./components/usereducer/GetPost2";
+import LayouComponent1 from "./components/customHook/Layoutcomponent";
+import LayouComponent2 from "./components/customHook/Layoutcomponent2";
+import Logo from "./assets/logo";
+import Logo2 from "./assets/Logo2";
+import Btntxt from "./assets/btntxt";
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <GetPost2 />
+        <Btntxt />
       </div>
     );
   }
