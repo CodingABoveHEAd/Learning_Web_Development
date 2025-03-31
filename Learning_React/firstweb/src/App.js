@@ -1,12 +1,29 @@
 import React from "react";
-import Navbar from './Components/styledcomponents/navbar'
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Switch,
+} from "react-router-dom";
+import Home from "./Components/RouterDom/Home";
+import Menu from "./Components/RouterDom/Menu";
+import About from "./Components/RouterDom/About";
+import Navbar2 from "./Components/RouterDom/Navbar2";
+import Error from "./Components/RouterDom/Error";
 class App extends React.Component {
   render() {
     return (
-      <div>
-         <Navbar />
-      </div>
-    
+      <>
+        <Router>
+          <Navbar2 />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/Menu" element={<Menu />} />
+              <Route path="/about/:category/:top" element={<About count="5"/>} />
+              <Route path="*" element={<Error />} />
+            </Routes>
+        </Router>
+      </>
     );
   }
 }
