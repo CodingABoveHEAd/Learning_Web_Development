@@ -1,11 +1,10 @@
-// import Container from "./home/Container";
-// import Nav from "./nav";
-import Signup from "./SignUp/signUp";
+// eslint-disable-next-line no-unused-vars
+import Login from "./Login";
 
 function App() {
   return (
     <div className="App">
-      <Signup />
+      <Login />
     </div>
   );
 }

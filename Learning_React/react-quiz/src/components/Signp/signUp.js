@@ -1,7 +1,4 @@
-// import Nav from navigator.mo
-import "../styles/global.css";
-import styles from "../styles/signup.css";
-import Illustration from "./illustration";
+import Illustration from "../illustration";
 
 export default function Signup() {
   return (
