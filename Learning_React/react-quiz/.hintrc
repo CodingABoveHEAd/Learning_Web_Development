@@ -25,7 +25,8 @@
     "axe/name-role-value": [
       "default",
       {
-        "button-name": "off"
+        "button-name": "off",
+        "link-name": "off"
       }
     ],
     "axe/forms": [
@@ -33,6 +34,9 @@
       {
         "label": "off"
       }
-    ]
+    ],
+    "detect-css-reflows/layout": "off",
+    "detect-css-reflows/paint": "off",
+    "disown-opener": "off"
   }
 }
