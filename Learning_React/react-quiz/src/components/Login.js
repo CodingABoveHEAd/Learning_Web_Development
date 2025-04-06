@@ -1,12 +1,11 @@
+import { Link } from "react-router-dom";
 import "../styles/global.css";
 import styles from "../styles/login.module.css";
 import Illustration from "./illustration";
-import Nav from "./nav";
 
 export default function Login() {
   return (
     <>
-      <Nav />
       <p>
         <b>Login to your account</b>
       </p>
@@ -16,7 +15,7 @@ export default function Login() {
             <b>Login to your account</b>
           </p>
           <Illustration
-            image="/HTML_Template/images/3071357.jpg"
+            image="/HTML_Template/images/login.jpg"
             Alt="login image"
           />
         </div>
@@ -25,7 +24,7 @@ export default function Login() {
           <input type="password" placeholder="Enter password" />
           <button type="submit">Submit</button>
           <p>
-            Don't have an account?<a href="/signUp.js">Signup</a> instead.
+            Don't have an account?<Link to="/signUp">Signup</Link> instead.
           </p>
         </div>
       </div>

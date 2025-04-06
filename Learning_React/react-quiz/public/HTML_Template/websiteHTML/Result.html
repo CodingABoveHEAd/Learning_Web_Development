@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz page</title>
-    <link rel="stylesheet" href="../websiteCSS/quizpage.css" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../websiteCSS/Result.css" />
   </head>
   <body>
     <div class="nav">
@@ -17,13 +17,25 @@
         <span style="font-size: 25px; margin-top: 30px">DSA Quiz Website</span>
       </div>
       <div id="login">
-        <a href="#" style="margin-right: 10px">Signup</a>
-        <a href="#">Login</a>
+        <a href="./Signup.html" style="margin-right: 10px">Signup</a>
+        <a href="./Login.html">Login</a>
       </div>
     </div>
-    <div class="bod">
+
+    <div class="container">
+      <div class="summary">
+        <div class="txt">
+          <b> Your Score is<br />15 out of 20</b>
+        </div>
+        <div class="imag">
+          <img src="../images/result-removebg-preview.png" alt="result_img" />
+        </div>
+      </div>
+
+      <p class="an">Result Analysis:</p>
+
       <div class="questions">
-        <div class="question">
+        <div class="question" style="margin-top: 15px">
           <div class="ques">
             <p>What is the time complexity of binary search?</p>
             <p
@@ -375,47 +387,6 @@
           </div>
         </div>
       </div>
-
-      <div class="help" onclick="func4()">
-        <img
-          height="100%"
-          width="100%"
-          src="../images/help.png"
-          alt="help image"
-        />
-        <div class="side">
-          <a target="_blank" href="https://www.geeksforgeeks.org/binary-search/"
-            ><img src="../images/GeeksforGeeks.jpeg" alt="gfg"
-          /></a>
-          <a
-            target="_blank"
-            href="https://chatgpt.com/share/67eeb842-4d38-8003-9663-47deca8fee7e"
-            ><img
-              src="../images/Korean Bulgogi Marinade for Ground Beef from Chapt GPT.jpeg"
-              alt="chatgpt"
-          /></a>
-          <a
-            target="_blank"
-            href="https://www.youtube.com/results?search_query=binary+search+"
-            ><img src="../images/youtube.png" alt="youtube"
-          /></a>
-        </div>
-      </div>
-      <br /><br /><br /><br />
-
-      <progress value="25" max="100"></progress>
-
-      <div class="progress">
-        <div class="left" onclick="func2()">
-          <img src="../images/Arrow-Left-08-WF-256.png" alt="left" />
-          <span style="padding: 0px 4px; padding-right: 7px">Previous</span>
-        </div>
-        <div class="right" onclick="func3()">
-          <span style="padding: 0px 4px; padding-left: 7px">Next</span>
-          <img src="../images/Arrow-Left-08-WF-256 - Copy.png" alt="right" />
-        </div>
-      </div>
     </div>
-    <script src="../Websitejs/quizpage.js"></script>
   </body>
 </html>

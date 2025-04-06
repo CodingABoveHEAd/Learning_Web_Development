@@ -1,0 +1,13 @@
+.questions {
+  position: relative;
+  height: 440px;
+  /* border: 1px solid black; */
+  overflow: hidden;
+  animation-duration: 1.5s;
+}
+
+@media screen and (max-width: 600px) {
+  .questions {
+    height: 750px;
+  }
+}

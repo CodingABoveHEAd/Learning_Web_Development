@@ -1,10 +1,24 @@
-// eslint-disable-next-line no-unused-vars
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Home from "./Home";
 import Login from "./Login";
+import Nav from "./nav";
+import Quiz from "./Quiz";
+import Result from "./Result";
+import Signup from "./signUp";
 
 function App() {
   return (
     <div className="App">
-      <Login />
+      <Router>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/quiz" element={<Quiz />} />
+          <Route path="/result" element={<Result />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

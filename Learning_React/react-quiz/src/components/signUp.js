@@ -1,19 +1,18 @@
+import { Link } from "react-router-dom";
 import "../styles/global.css";
 import styles from "../styles/signup.module.css";
 import Illustration from "./illustration";
-import Nav from "./nav";
 
 export default function Signup() {
   return (
     <>
-      <Nav />
       <div className={styles.signup}>
         <div className={styles.left}>
           <p>
             <b>Create your account</b>
           </p>
           <Illustration
-            image="/HTML_Template/images/Mobile login Customizable Flat Illustrations _ Rafiki Style.jpeg"
+            image="/HTML_Template/images/signup.png"
             alt="Signup image"
           />
         </div>
@@ -32,7 +31,7 @@ export default function Signup() {
           </div>
           <button type="submit">Submit</button>
           <p>
-            Already have an account? <a href="Login.html">Login</a> instead.
+            Already have an account? <Link to="/login">Login</Link> instead.
           </p>
         </div>
       </div>

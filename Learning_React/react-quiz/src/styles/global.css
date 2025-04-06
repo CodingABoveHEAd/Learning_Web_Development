@@ -13,3 +13,7 @@ a {
 a:hover {
   color: rgb(40, 136, 214);
 }
+
+body {
+  background-color: rgb(231, 240, 248);
+}

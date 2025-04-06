@@ -6,7 +6,7 @@ let side = document.getElementsByClassName("side");
 function func1(event) {
   let parent = event.target.parentElement;
   if (event.target.checked) parent.style.backgroundColor = "lightblue";
-  else parent.style.backgroundColor = "rgb(241, 241, 241)";
+  else parent.style.backgroundColor = "rgb(255, 255, 255)";
 }
 
 // eslint-disable-next-line no-unused-vars
