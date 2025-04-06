@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 import "../styles/global.css";
 import styled from "../styles/nav.module.css";
 
 export default function Nav() {
+  const { currentUser, logout } = useAuth();
   return (
     <div className={styled.nav}>
       <Link to="/">
@@ -19,12 +21,19 @@ export default function Nav() {
         </div>
       </Link>
 
-      <div className={styled.login}>
-        <Link to="/signup" style={{ marginRight: "10px" }}>
-          Signup
-        </Link>
-        <Link to="/login">Login</Link>
-      </div>
+      {currentUser ? (
+        <div className={styled.login}>
+          <span style={{ marginRight: "10px" }}>{currentUser.displayName}</span>
+          <span onClick={logout}>LogOut</span>
+        </div>
+      ) : (
+        <div className={styled.login}>
+          <Link to="/signup" style={{ marginRight: "10px" }}>
+            Signup
+          </Link>
+          <Link to="/login">Login</Link>
+        </div>
+      )}
     </div>
   );
 }
