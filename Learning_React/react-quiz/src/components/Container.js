@@ -1,70 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { Link } from "react-router-dom";
-import styled from "../styles/container.module.css";
+import useTopicList from "../Hooks/useTopiclist";
+// import styled from "../styles/container.module.css";
 import "../styles/global.css";
 import Item from "./Item";
 
-const styles = {
-  color: "black",
-};
-
 export default function Container() {
+  const [Page, setPage] = useState(1);
+  const { load, error, topics, hasMore } = useTopicList(Page);
+  // console.log("Current page:", Page);
+  // console.log("Topics loaded:", topics.length);
+
   return (
-    <div className={styled.cont}>
-      <Link className={styled.link} to="/quiz">
-        <Item
-          name="#01 Binary Search Quiz"
-          image="/HTML_Template/images/bs.jpg"
-        />
-      </Link>
-      <Link className={styled.link} to="/quiz">
-        <Item
-          name="#02 Two Pointer Quiz"
-          image="/HTML_Template/images/photo_2025-04-01_12-09-14.jpg"
-        />
-      </Link>
-
-      <Link className={styled.link} to="/quiz">
-        <Item
-          name="#03 Linked List Quiz"
-          image="/HTML_Template/images/photo_2025-04-01_12-09-29.jpg"
-        />
-      </Link>
-
-      <Link className={styled.link} to="/quiz">
-        <Item
-          name="#04 Graph Quiz"
-          image="/HTML_Template/images/photo_2025-04-01_12-09-26.jpg"
-        />
-      </Link>
-
-      <Link className={styled.link} to="/quiz">
-        <Item
-          name="#05 Tree Quiz"
-          image="/HTML_Template/images/photo_2025-04-01_12-09-39.jpg"
-        />
-      </Link>
-
-      <Link className={styled.link} to="/quiz">
-        <Item
-          name="#06 DP Quiz"
-          image="/HTML_Template/images/photo_2025-04-01_12-09-33.jpg"
-        />
-      </Link>
-
-      <Link className={styled.link} to="/quiz">
-        <Item
-          name="#07 Array Quiz"
-          image="/HTML_Template/images/photo_2025-04-01_12-09-36.jpg"
-        />
-      </Link>
-
-      <Link className={styled.link} to="/quiz">
-        <Item
-          name="#08 Hashing Quiz"
-          image="/HTML_Template/images/photo_2025-04-01_12-09-43.jpg"
-        />
-      </Link>
+    <div>
+      {topics.length > 0 && (
+        <InfiniteScroll
+          dataLength={topics.length}
+          hasMore={hasMore}
+          loader="Loading....."
+          next={() => setPage(1)}
+        >
+          {topics.map((topic) => (
+            <Link to="/quiz" key={topic.ID}>
+              <Item
+                name={topic.name}
+                image={topic.image}
+                id={topic.ID}
+                noq={topic.noq}
+              />
+            </Link>
+          ))}
+        </InfiniteScroll>
+      )}
+      {/* style={{ fontSize: 25, marginTop: 20, textTlign: "center" }} */}
+      {!load && topics.length === 0 && <p className="load">No data found</p>}
+      {load && <p className="load">Loading.....</p>}
+      {error && <p className="load">There was an error!</p>}
     </div>
   );
 }

@@ -3,6 +3,8 @@ import { AuthProvider } from "../contexts/AuthContext";
 import Home from "./Home";
 import Login from "./Login";
 import Nav from "./nav";
+import PrivateRoute from "./privaeRoute";
+import PublicRoute from "./publicRoute";
 import Quiz from "./Quiz";
 import Result from "./Result";
 import Signup from "./signUp";
@@ -15,10 +17,19 @@ function App() {
           <Nav />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/quiz" element={<Quiz />} />
-            <Route path="/result" element={<Result />} />
+            <Route
+              path="/login"
+              element={<PublicRoute element={<Login />} />}
+            />
+            <Route
+              path="/signup"
+              element={<PublicRoute element={<Signup />} />}
+            />
+            <Route path="/quiz" element={<PrivateRoute element={<Quiz />} />} />
+            <Route
+              path="/result"
+              element={<PrivateRoute element={<Result />} />}
+            />
           </Routes>
         </AuthProvider>
       </Router>

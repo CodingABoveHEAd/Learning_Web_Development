@@ -19,19 +19,20 @@ export default function Signup() {
 
   async function handlesubmit(e) {
     e.preventDefault();
+
     if (password !== confirmPassword) {
       return seterror("Passwords don't match");
     }
 
     try {
       seterror("");
-      setloading(false);
+      setloading(true);
       await signup(email, password, username);
       navigate("/");
     } catch (error) {
       console.log(error);
       setloading(false);
-      seterror("Faild to create an account");
+      seterror("Failed to create an account");
     } finally {
       setloading(false);
     }

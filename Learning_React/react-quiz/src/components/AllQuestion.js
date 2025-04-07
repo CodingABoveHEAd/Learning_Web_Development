@@ -27,7 +27,6 @@ export default function AllQuestion({ resultpage }) {
         }
       >
         <Question
-          // style={{ marginTop: 15 }}
           resultpage={resultpage}
           p="What is the time complexity of binary search?"
           op1="nlogn"
