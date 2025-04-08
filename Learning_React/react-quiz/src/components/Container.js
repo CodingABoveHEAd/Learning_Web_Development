@@ -9,20 +9,20 @@ import Item from "./Item";
 export default function Container() {
   const [Page, setPage] = useState(1);
   const { load, error, topics, hasMore } = useTopicList(Page);
-  // console.log("Current page:", Page);
-  // console.log("Topics loaded:", topics.length);
+  console.log("Current page:", Page);
+  console.log("Topics loaded:", topics.length);
 
   return (
     <div>
       {topics.length > 0 && (
         <InfiniteScroll
           dataLength={topics.length}
-          hasMore={hasMore}
-          loader="Loading....."
-          next={() => setPage(1)}
+          hasMore={true}
+          loader={hasMore ? "Loading....." : ""}
+          next={() => setPage((prev) => prev + 4)}
         >
           {topics.map((topic) => (
-            <Link to="/quiz" key={topic.ID}>
+            <Link to={`/quiz/${topic.ID}`} key={topic.ID}>
               <Item
                 name={topic.name}
                 image={topic.image}
@@ -33,7 +33,12 @@ export default function Container() {
           ))}
         </InfiniteScroll>
       )}
-      {/* style={{ fontSize: 25, marginTop: 20, textTlign: "center" }} */}
+
+      {!hasMore && topics.length > 0 && (
+        <p style={{ textAlign: "center", marginTop: "1rem", color: "#888" }}>
+          🎉 You have reached the end!
+        </p>
+      )}
       {!load && topics.length === 0 && <p className="load">No data found</p>}
       {load && <p className="load">Loading.....</p>}
       {error && <p className="load">There was an error!</p>}

@@ -1,6 +1,6 @@
 .opt {
   display: flex;
-  height: 60px;
+  min-height: 50px;
   align-items: center;
   font-size: 20px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.108);
@@ -8,11 +8,12 @@
   cursor: pointer;
   background-color: rgb(255, 255, 255);
   border-radius: 5px;
+  gap: 8px;
 }
 
 .opt:hover {
   /* background-color: rgb(43, 214, 120); */
-  padding: 11px;
-  font-size: 23px;
+  /* padding: 11px; */
+  font-size: 21px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.674);
 }

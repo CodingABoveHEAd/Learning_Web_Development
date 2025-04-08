@@ -10,14 +10,13 @@ import {
 import { useEffect, useState } from "react";
 
 export default function useTopicList(page) {
-  const [load, setload] = useState(true);
-  const [error, seterror] = useState(false);
-  const [topics, settopics] = useState([]);
-  const [hasmore, sethasmore] = useState(true);
+  const [load, setLoad] = useState(true);
+  const [error, setError] = useState(false);
+  const [topics, setTopics] = useState([]);
+  const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
     async function fetchTopics() {
-      //database related works
       const db = getDatabase();
       const topicsRef = ref(db, "topics");
 
@@ -25,41 +24,47 @@ export default function useTopicList(page) {
         topicsRef,
         orderByKey(),
         startAt("" + page),
-        limitToFirst(8)
+        limitToFirst(4)
       );
-      try {
-        seterror(false);
-        setload(true);
 
-        //request firebase databasa
+      try {
+        setError(false);
+        setLoad(true);
+
         const snapshot = await get(topicQuery);
-        setload(false);
-        // if (snapshot.exists()) {
-        //   settopics((prevtopics) => {
-        //     return [...prevtopics, ...Object.values(snapshot.val())];
-        //   });
-        // } else {
-        // }
+        setLoad(false);
+
         if (snapshot.exists()) {
-          settopics(Object.values(snapshot.val()));
+          const newTopics = Object.values(snapshot.val());
+
+          setTopics((prevTopics) => {
+            const existingIDs = new Set(prevTopics.map((t) => t.ID));
+            const uniqueTopics = newTopics.filter(
+              (t) => !existingIDs.has(t.ID)
+            );
+            return [...prevTopics, ...uniqueTopics];
+          });
+
+          if (newTopics.length < 4) {
+            setHasMore(false);
+          }
         } else {
-          sethasmore(false);
+          setHasMore(false);
         }
-      } catch (error) {
-        console.log(error);
-        seterror(true);
-        setload(false);
+      } catch (err) {
+        console.error(err);
+        setError(true);
+        setLoad(false);
       }
     }
-    fetchTopics();
-    // setTimeout(() => {
 
-    // }, 2000);
+    fetchTopics();
   }, [page]);
+
   return {
     load,
     error,
     topics,
-    hasmore,
+    hasmore: hasMore,
   };
 }

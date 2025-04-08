@@ -25,7 +25,10 @@ function App() {
               path="/signup"
               element={<PublicRoute element={<Signup />} />}
             />
-            <Route path="/quiz" element={<PrivateRoute element={<Quiz />} />} />
+            <Route
+              path="/quiz/:id"
+              element={<PrivateRoute element={<Quiz />} />}
+            />
             <Route
               path="/result"
               element={<PrivateRoute element={<Result />} />}

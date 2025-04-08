@@ -292,6 +292,82 @@
     "top4": {
       "questions": [
         {
+          "title": "1. What is a graph?",
+          "options": [
+            { "title": "A collection of nodes only" },
+            { "title": "A collection of edges only" },
+            {
+              "title": "A collection of nodes (vertices) and edges connecting them"
+            },
+            { "title": "A sequence of numbers" },
+            { "title": "A tree structure with no cycles" },
+            { "title": "A directed acyclic graph" },
+            { "title": "A grid of nodes" },
+            { "title": "A matrix of nodes" }
+          ]
+        },
+        {
+          "title": "2. Which of the following is not a type of graph?",
+          "options": [
+            { "title": "Directed Graph" },
+            { "title": "Undirected Graph" },
+            { "title": "Weighted Graph" },
+            { "title": "Cyclic Graph" },
+            { "title": "Acyclic Graph" },
+            { "title": "Complete Graph" },
+            { "title": "Bipartite Graph" },
+            { "title": "Heap" }
+          ]
+        },
+        {
+          "title": "3. In a directed graph, what does an edge represent?",
+          "options": [
+            { "title": "A connection between any two nodes" },
+            { "title": "A node with no edges" },
+            { "title": "A weighted relationship between two nodes" },
+            { "title": "A loop from a node to itself" },
+            { "title": "A directed acyclic property" },
+            { "title": "A spanning tree" },
+            {
+              "title": "A relationship from one node to another"
+            },
+            { "title": "A self-connection" }
+          ]
+        },
+        {
+          "title": "4. Which of the following algorithms is used to find the shortest path in a graph?",
+          "options": [
+            { "title": "Merge Sort" },
+            { "title": "Bubble Sort" },
+            { "title": "Dijkstra's Algorithm" },
+            { "title": "Breadth First Search" },
+            { "title": "Depth First Search" },
+            { "title": "Prim's Algorithm" },
+            { "title": "Quick Sort" },
+            { "title": "Floyd-Warshall Algorithm" }
+          ]
+        },
+        {
+          "title": "5. What is a cycle in a graph?",
+          "options": [
+            {
+              "title": "A path in a graph that starts and ends at the same node"
+            },
+            { "title": "A path with no edges" },
+            { "title": "A fully connected graph" },
+            { "title": "A graph with no nodes" },
+            { "title": "A subgraph of the graph" },
+            { "title": "A graph with directed edges only" },
+            { "title": "A set of independent edges" },
+            { "title": "A spanning tree with no branches" }
+          ]
+        }
+      ]
+    },
+
+    "top5": {
+      "questions": [
+        {
           "title": "1. What is a binary tree?",
           "options": [
             { "title": "A tree where each node has at most two children" },
@@ -343,67 +419,6 @@
             { "title": "Scapegoat Tree" },
             { "title": "B-Tree" },
             { "title": "Segment Tree" }
-          ]
-        }
-      ]
-    },
-
-    "top5": {
-      "questions": [
-        {
-          "title": "1. What is the main idea behind Dynamic Programming?",
-          "options": [
-            {
-              "title": "Breaking problems into overlapping subproblems and storing their solutions"
-            },
-            { "title": "Trying all possible combinations" },
-            { "title": "Using recursion only" },
-            { "title": "Greedy selection of the best options" },
-            { "title": "Using multithreading for fast computation" },
-            { "title": "Sorting and then binary searching" },
-            { "title": "Storing only the final result" },
-            { "title": "Eliminating recursion completely" }
-          ]
-        },
-        {
-          "title": "2. Which of the following problems can be solved using DP?",
-          "options": [
-            { "title": "0/1 Knapsack Problem" },
-            { "title": "Binary Search" },
-            { "title": "Depth First Search" },
-            { "title": "Prim's Algorithm" },
-            { "title": "Dijkstra’s Algorithm" },
-            { "title": "Breadth First Search" },
-            { "title": "Minimum Spanning Tree" },
-            { "title": "Heap Sort" }
-          ]
-        },
-        {
-          "title": "3. What is memoization?",
-          "options": [
-            {
-              "title": "Top-down approach of DP where solutions are stored to avoid recomputation"
-            },
-            { "title": "A greedy way of solving problems" },
-            { "title": "Sorting subproblems for faster access" },
-            { "title": "Using a heap to store values" },
-            { "title": "Finding patterns using hashmaps" },
-            { "title": "Graph traversal using DFS" },
-            { "title": "Compressing the data structure" },
-            { "title": "Converting recursion into iteration" }
-          ]
-        },
-        {
-          "title": "4. What is the time complexity of solving Fibonacci using plain recursion?",
-          "options": [
-            { "title": "O(2^n)" },
-            { "title": "O(n)" },
-            { "title": "O(n log n)" },
-            { "title": "O(log n)" },
-            { "title": "O(n^2)" },
-            { "title": "O(n!)" },
-            { "title": "O(1)" },
-            { "title": "O(n^n)" }
           ]
         }
       ]
@@ -469,6 +484,7 @@
         }
       ]
     },
+
     "top7": {
       "questions": [
         {
@@ -527,6 +543,7 @@
         }
       ]
     },
+
     "top8": {
       "questions": [
         {
