@@ -1,7 +1,7 @@
 import "../styles/global.css";
 import styles from "../styles/Option.module.css";
 
-export default function Option({ Text, Value, Check, onChange }) {
+export default function Option({ Text, Value, Check, onChange, disabled }) {
   // const [isSelected, setIsSelected] = useState(false);
 
   // const handleClick = (e) => {
@@ -24,6 +24,7 @@ export default function Option({ Text, Value, Check, onChange }) {
         type="checkbox"
         onChange={onChange}
         style={{ cursor: "pointer", margin: "0px 5px" }}
+        disabled={disabled}
       />
       <span>{Text}</span>
     </div>

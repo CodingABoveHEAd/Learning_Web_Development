@@ -3,7 +3,7 @@ import styles from "../styles/PrevNext.module.css";
 
 // const prog = document.querySelector("progress");
 
-export default function PrevNext({ Nextques, Prevques }) {
+export default function PrevNext({ Nextques, Prevques, Flag, Submit }) {
   // let [cntx, changeCntx] = useState(0);
 
   // const change = (e) => {
@@ -28,7 +28,11 @@ export default function PrevNext({ Nextques, Prevques }) {
   //     func3();
   //   }
   // };
+
   // console.log(cntx);
+  // console.log(Flag);
+
+  const btnName = Flag ? "Submit" : "Next";
 
   return (
     <>
@@ -42,8 +46,14 @@ export default function PrevNext({ Nextques, Prevques }) {
             Previous
           </span>
         </div>
-        <div id="next" className={styles.right} onClick={Nextques}>
-          <span style={{ padding: "0 4px", paddingLeft: "7px" }}>Next</span>
+        <div
+          id="next"
+          className={styles.right}
+          onClick={Flag ? Submit : Nextques}
+        >
+          <span style={{ padding: "0 4px", paddingLeft: "7px" }}>
+            {btnName}
+          </span>
           <img
             src="/HTML_Template/images/Arrow-Left-08-WF-256 - Copy.png"
             alt="right"

@@ -30,7 +30,7 @@ function App() {
               element={<PrivateRoute element={<Quiz />} />}
             />
             <Route
-              path="/result"
+              path="/result/:id"
               element={<PrivateRoute element={<Result />} />}
             />
           </Routes>

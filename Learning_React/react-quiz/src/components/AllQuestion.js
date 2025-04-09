@@ -1,9 +1,10 @@
+import { getDatabase, ref, set } from "firebase/database";
 import _ from "lodash";
 import { useEffect, useReducer, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 import useQuestion from "../Hooks/useQuestions";
 import styles from "../styles/AllQuestion.module.css";
-import resstyles from "../styles/Analysis.module.css";
 import "../styles/global.css";
 import PrevNext from "./PrevNext";
 import Question from "./Question";
@@ -31,12 +32,17 @@ const reducer = (state, action) => {
   }
 };
 
-export default function AllQuestion({ resultpage }) {
+export default function AllQuestion({ resultpage, Answers = [] }) {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { load, error, questions } = useQuestion(id);
   const [curques, setcurques] = useState(0);
+  const [flag, setflag] = useState(false);
 
   const [qna, dispatch] = useReducer(reducer, initialState);
+  const { currentUser } = useAuth();
+
+  // console.log(Answers);
 
   useEffect(() => {
     dispatch({
@@ -46,13 +52,15 @@ export default function AllQuestion({ resultpage }) {
   }, [questions]);
 
   function next() {
-    if (curques <= questions.length) {
+    if (curques + 1 < questions.length) {
       setcurques((prev) => prev + 1);
+
+      if (curques + 2 === questions.length) {
+        // console.log(curques);
+        setflag(true);
+      }
     } else {
-      console.log(questions.length);
-      alert("No more question");
-      setcurques(questions.length - 1);
-      return;
+      navigate("/result");
     }
   }
 
@@ -60,6 +68,18 @@ export default function AllQuestion({ resultpage }) {
     if (curques && curques <= questions.length) {
       setcurques((prev) => prev - 1);
     }
+  }
+
+  async function submit() {
+    const { uid } = currentUser;
+    const db = getDatabase();
+    const resultref = ref(db, `result/${uid}`);
+    await set(resultref, qna);
+    navigate(`/result/${id}`, {
+      state: {
+        qna,
+      },
+    });
   }
 
   function change(e, index) {
@@ -71,7 +91,7 @@ export default function AllQuestion({ resultpage }) {
     });
   }
 
-  console.log(qna);
+  // console.log(qna);
 
   return (
     <>
@@ -80,28 +100,34 @@ export default function AllQuestion({ resultpage }) {
 
       {!load && !error && qna && qna.length > 0 && (
         <>
-          <div
-            className={
-              resultpage === "true" ? resstyles.questions : styles.questions
-            }
-          >
-            {qna && qna.length > 0 && (
-              <Question
-                resultpage={resultpage}
-                title={qna[curques].title}
-                options={qna[curques].options}
-                handle={change}
+          {resultpage === "false" ? (
+            <>
+              <div className={styles.questions}>
+                <Question
+                  resultpage={resultpage}
+                  title={qna[curques].title}
+                  options={qna[curques].options}
+                  handle={change}
+                />
+              </div>
+              <progress
+                style={{ width: "100%", marginTop: "50px" }}
+                value={(curques + 1) * 25}
+                max="100"
+              ></progress>
+
+              <PrevNext
+                Nextques={next}
+                Prevques={prev}
+                Flag={flag}
+                Submit={submit}
               />
-            )}
-          </div>
-
-          <progress
-            style={{ width: "100%", marginTop: "50px" }}
-            value={(curques + 1) * 25}
-            max="100"
-          ></progress>
-
-          <PrevNext Nextques={next} Prevques={prev} />
+            </>
+          ) : (
+            <>
+              <Question resultpage={resultpage} answers={Answers} />
+            </>
+          )}
         </>
       )}
     </>

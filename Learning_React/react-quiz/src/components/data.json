@@ -119,9 +119,9 @@
         {
           "title": "1. What is the time complexity of binary search?",
           "options": [
-            { "title": "logn" },
             { "title": "nlogn" },
             { "title": "n" },
+            { "title": "logn" },
             { "title": "n^2" },
             { "title": "n^3" },
             { "title": "n^2logn" },
@@ -147,8 +147,11 @@
           "options": [
             { "title": "Divide the array into three parts" },
             { "title": "Search every element linearly" },
-            { "title": "Halve the array and search in one half" },
+
             { "title": "Sort the array first" },
+            {
+              "title": "Halve the array and search in one half"
+            },
             { "title": "Start from the end and move backward" },
             { "title": "Double the search index each time" },
             { "title": "Search randomly" },
@@ -160,11 +163,12 @@
           "options": [
             { "title": "Continue searching in the left half" },
             { "title": "Continue searching in the right half" },
-            { "title": "Element is found" },
+
             { "title": "Restart the search" },
             { "title": "Return -1" },
             { "title": "Skip the next two elements" },
             { "title": "Return the last index" },
+            { "title": "Element is found" },
             { "title": "Start linear search" }
           ]
         }
@@ -177,9 +181,10 @@
           "title": "1. What is the two pointer technique commonly used for?",
           "options": [
             { "title": "Traversing two arrays simultaneously" },
-            { "title": "Optimizing nested loops" },
+
             { "title": "Reducing space complexity" },
             { "title": "Merging two linked lists" },
+            { "title": "Optimizing nested loops" },
             { "title": "Solving recursion problems" },
             { "title": "Traversing binary trees" },
             { "title": "Implementing hash maps" },
@@ -202,8 +207,8 @@
         {
           "title": "3. Which problem is best solved using the two pointer approach?",
           "options": [
-            { "title": "Finding the middle element" },
             { "title": "Finding a pair with a target sum" },
+            { "title": "Finding the middle element" },
             { "title": "Finding the largest element" },
             { "title": "Finding maximum frequency" },
             { "title": "Binary search" },
@@ -215,12 +220,12 @@
         {
           "title": "4. In a two pointer approach, how do the pointers usually move?",
           "options": [
-            { "title": "Both move in the same direction" },
             { "title": "Both stay static" },
             { "title": "One moves forward, the other backward" },
             { "title": "They move randomly" },
             { "title": "They jump two indices each time" },
             { "title": "Only one pointer moves" },
+            { "title": "Both move in the same direction" },
             { "title": "They move in a zigzag pattern" },
             { "title": "They are used to sort arrays" }
           ]
@@ -233,15 +238,15 @@
         {
           "title": "1. What is a linked list?",
           "options": [
-            {
-              "title": "A collection of nodes where each node contains data and a pointer to the next node"
-            },
             { "title": "A type of array with dynamic memory allocation" },
             { "title": "A tree structure" },
             { "title": "A stack implementation" },
             { "title": "A matrix of elements" },
             { "title": "A hash-based data structure" },
             { "title": "A fixed-size list of integers" },
+            {
+              "title": "A collection of nodes where each node contains data and a pointer to the next node"
+            },
             { "title": "An object-oriented class" }
           ]
         },
@@ -261,11 +266,11 @@
         {
           "title": "3. Which of the following is not a type of linked list?",
           "options": [
-            { "title": "Singly linked list" },
             { "title": "Doubly linked list" },
             { "title": "Circular linked list" },
             { "title": "Triply linked list" },
             { "title": "Tail linked list" },
+            { "title": "Singly linked list" },
             { "title": "Head linked list" },
             { "title": "Reverse linked list" },
             { "title": "Multilevel linked list" }
@@ -274,12 +279,12 @@
         {
           "title": "4. How do you detect a cycle in a linked list?",
           "options": [
-            {
-              "title": "Using Floyd's Cycle Detection Algorithm (Tortoise and Hare)"
-            },
             { "title": "Using Depth First Search" },
             { "title": "By checking all values" },
             { "title": "Sorting the list first" },
+            {
+              "title": "Using Floyd's Cycle Detection Algorithm (Tortoise and Hare)"
+            },
             { "title": "Using HashMap only" },
             { "title": "Using binary search" },
             { "title": "Using a queue" },
@@ -370,7 +375,9 @@
         {
           "title": "1. What is a binary tree?",
           "options": [
-            { "title": "A tree where each node has at most two children" },
+            {
+              "title": "A tree where each node has at most two children"
+            },
             { "title": "A tree where each node has exactly two children" },
             { "title": "A tree with only one node" },
             { "title": "A graph with no cycles" },
@@ -383,27 +390,27 @@
         {
           "title": "2. Which traversal method visits the nodes in the order: Left, Root, Right?",
           "options": [
-            { "title": "Inorder Traversal" },
             { "title": "Preorder Traversal" },
             { "title": "Postorder Traversal" },
             { "title": "Level Order Traversal" },
             { "title": "Zigzag Traversal" },
             { "title": "Reverse Level Order" },
             { "title": "DFS" },
+            { "title": "Inorder Traversal" },
             { "title": "BFS" }
           ]
         },
         {
           "title": "3. What is the height of a tree?",
           "options": [
-            {
-              "title": "The number of edges on the longest path from root to a leaf"
-            },
             { "title": "The number of nodes in the tree" },
             { "title": "The maximum number of children a node has" },
             { "title": "The distance between the root and leftmost node" },
             { "title": "The total number of edges in the tree" },
             { "title": "The number of levels in the tree" },
+            {
+              "title": "The number of edges on the longest path from root to a leaf"
+            },
             { "title": "The depth of the shallowest leaf" },
             { "title": "The number of internal nodes" }
           ]
@@ -411,10 +418,10 @@
         {
           "title": "4. Which of the following is not a self-balancing binary search tree?",
           "options": [
-            { "title": "Binary Heap" },
             { "title": "AVL Tree" },
             { "title": "Red-Black Tree" },
             { "title": "Splay Tree" },
+            { "title": "Binary Heap" },
             { "title": "Treap" },
             { "title": "Scapegoat Tree" },
             { "title": "B-Tree" },
@@ -429,11 +436,11 @@
         {
           "title": "1. What is the main idea behind Dynamic Programming?",
           "options": [
+            { "title": "Trying all possible combinations" },
+            { "title": "Using recursion only" },
             {
               "title": "Breaking problems into overlapping subproblems and storing their solutions"
             },
-            { "title": "Trying all possible combinations" },
-            { "title": "Using recursion only" },
             { "title": "Greedy selection of the best options" },
             { "title": "Using multithreading for fast computation" },
             { "title": "Sorting and then binary searching" },
@@ -444,11 +451,11 @@
         {
           "title": "2. Which of the following problems can be solved using DP?",
           "options": [
-            { "title": "0/1 Knapsack Problem" },
             { "title": "Binary Search" },
             { "title": "Depth First Search" },
             { "title": "Prim's Algorithm" },
-            { "title": "Dijkstra’s Algorithm" },
+            { "title": "0/1 Knapsack Problem" },
+            { "title": "Dijkstra's Algorithm" },
             { "title": "Breadth First Search" },
             { "title": "Minimum Spanning Tree" },
             { "title": "Heap Sort" }
@@ -457,13 +464,13 @@
         {
           "title": "3. What is memoization?",
           "options": [
-            {
-              "title": "Top-down approach of DP where solutions are stored to avoid recomputation"
-            },
             { "title": "A greedy way of solving problems" },
             { "title": "Sorting subproblems for faster access" },
             { "title": "Using a heap to store values" },
             { "title": "Finding patterns using hashmaps" },
+            {
+              "title": "Top-down approach of DP where solutions are stored to avoid recomputation"
+            },
             { "title": "Graph traversal using DFS" },
             { "title": "Compressing the data structure" },
             { "title": "Converting recursion into iteration" }
@@ -472,8 +479,8 @@
         {
           "title": "4. What is the time complexity of solving Fibonacci using plain recursion?",
           "options": [
-            { "title": "O(2^n)" },
             { "title": "O(n)" },
+            { "title": "O(2^n)" },
             { "title": "O(n log n)" },
             { "title": "O(log n)" },
             { "title": "O(n^2)" },
@@ -490,12 +497,12 @@
         {
           "title": "1. What is the time complexity to access an element in an array by index?",
           "options": [
-            { "title": "O(1)" },
             { "title": "O(n)" },
             { "title": "O(log n)" },
             { "title": "O(n log n)" },
             { "title": "O(n^2)" },
             { "title": "O(2^n)" },
+            { "title": "O(1)" },
             { "title": "O(1/n)" },
             { "title": "O(n!)" }
           ]
@@ -503,10 +510,10 @@
         {
           "title": "2. What will be the output of the following array operation: arr = [1, 2, 3]; arr.push(4)?",
           "options": [
-            { "title": "[1, 2, 3, 4]" },
             { "title": "[4, 1, 2, 3]" },
             { "title": "[1, 2, 3]" },
             { "title": "[4]" },
+            { "title": "[1, 2, 3, 4]" },
             { "title": "[1, 2, 3, 4, 5]" },
             { "title": "[1, 2]" },
             { "title": "[4, 3, 2, 1]" },
@@ -516,28 +523,28 @@
         {
           "title": "3. What is the purpose of the two-pointer technique on arrays?",
           "options": [
-            {
-              "title": "To reduce time complexity in problems involving pairs or subarrays"
-            },
             { "title": "To sort the array quickly" },
             { "title": "To increase the array size dynamically" },
             { "title": "To convert an array into a stack" },
             { "title": "To reverse the array only" },
             { "title": "To remove duplicates" },
             { "title": "To perform binary search" },
-            { "title": "To create nested loops" }
+            { "title": "To create nested loops" },
+            {
+              "title": "To reduce time complexity in problems involving pairs or subarrays"
+            }
           ]
         },
         {
           "title": "4. Which method is used to remove the last element of an array in JavaScript?",
           "options": [
-            { "title": "pop()" },
             { "title": "push()" },
             { "title": "shift()" },
             { "title": "unshift()" },
             { "title": "splice()" },
             { "title": "delete()" },
             { "title": "slice()" },
+            { "title": "pop()" },
             { "title": "remove()" }
           ]
         }
@@ -575,8 +582,8 @@
         {
           "title": "3. What is a common method used to resolve hash collisions?",
           "options": [
-            { "title": "Chaining" },
             { "title": "Binary search" },
+            { "title": "Chaining" },
             { "title": "Tree traversal" },
             { "title": "Memoization" },
             { "title": "Backtracking" },
@@ -588,11 +595,13 @@
         {
           "title": "4. What is the primary function of a hash function?",
           "options": [
-            { "title": "To map keys to indices in a hash table" },
             { "title": "To sort data efficiently" },
             { "title": "To compress data" },
             { "title": "To reverse strings" },
             { "title": "To create loops in code" },
+            {
+              "title": "To map keys to indices in a hash table"
+            },
             { "title": "To add elements to arrays" },
             { "title": "To store data sequentially" },
             { "title": "To merge data structures" }
@@ -658,7 +667,7 @@
             { "title": "Return -1" },
             { "title": "Skip the next two elements" },
             { "title": "Return the last index" },
-            { "title": "Element is found" },
+            { "title": "Element is found", "correct": true },
             { "title": "Start linear search" }
           ]
         }

@@ -1,7 +1,7 @@
 import "../styles/global.css";
 import styles from "../styles/Summary.module.css";
 
-export default function Summary() {
+export default function Summary({ UserScore = 0 }) {
   return (
     <>
       <div className={styles.summary}>
@@ -9,7 +9,7 @@ export default function Summary() {
           <b>
             Your Score is
             <br />
-            15 out of 20
+            {UserScore} out of 20
           </b>
         </div>
         <div className={styles.imag}>
