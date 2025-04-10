@@ -9,8 +9,9 @@ import Item from "./Item";
 export default function Container() {
   const [Page, setPage] = useState(1);
   const { load, error, topics, hasMore } = useTopicList(Page);
-  console.log("Current page:", Page);
-  console.log("Topics loaded:", topics.length);
+  // console.log("Current page:", Page);
+  // console.log("Topics loaded:", topics.length);
+  // console.log(topics);
 
   return (
     <div>

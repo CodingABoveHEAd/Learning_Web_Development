@@ -53,8 +53,9 @@ export default function Question({
                     key={oIndex}
                     Text={opt.title}
                     Check={opt.checked}
+                    correct={opt.correct}
+                    resultpage={resultpage}
                     disabled
-                    // No onChange needed on result page
                   />
                 ))}
               </div>

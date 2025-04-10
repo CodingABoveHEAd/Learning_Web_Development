@@ -13,17 +13,19 @@
   }
   to {
     scale: 1;
+
+    /* color: #4d194d8a; */
   }
 }
 
-@media screen and (max-width: 665px) {
+@media screen and (max-width: 600px) {
   .questions {
-    height: 700px;
+    height: 800px;
   }
 }
 
-@media screen and (max-width: 505px) {
+/* @media screen and (max-width: 505px) {
   .questions {
-    height: 900px;
+    height: 800px;
   }
-}
+} */

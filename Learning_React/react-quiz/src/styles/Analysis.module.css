@@ -35,13 +35,12 @@
   transition: box-shadow 0.3s ease-in-out;
   cursor: pointer;
   background-color: rgb(244, 250, 241);
+  /* background-color: rgb(63, 161, 14); */
   /* opacity: 0.7; */
   border-radius: 5px;
 }
 
 .opt:hover {
-  /* background-color: rgb(43, 214, 120); */
-  padding: 11px;
   font-size: 23px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.674);
 }
@@ -54,10 +53,16 @@
 }
 
 .an {
-  margin-bottom: -40px;
+  /* margin-bottom: -40px; */
   font-size: 35px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: rgb(37, 66, 10);
+}
+
+.hints {
+  font-size: 12px;
+  margin-right: 8px;
+  padding: 3px;
 }
 
 @media screen and (max-width: 600px) {

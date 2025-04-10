@@ -10,7 +10,7 @@ export default function Result() {
   const { id } = useParams();
   const location = useLocation();
   const { state } = location;
-  const { qna } = state;
+  const qna = state?.qna;
 
   const { loading, error, Answers } = useAnswer(id);
 
@@ -39,6 +39,9 @@ export default function Result() {
 
   return (
     <>
+      {!qna && (
+        <p>Oops! No quiz data found. Try going back and retaking the quiz.</p>
+      )}
       {loading && <p>Loading.....</p>}
       {error && <p>There was an error!</p>}
 

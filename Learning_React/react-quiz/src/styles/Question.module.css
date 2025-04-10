@@ -1,8 +1,9 @@
 .question {
   width: 100%;
-  height: 100%;
+  height: 90%;
   position: absolute;
   transition: 1s;
+  /* background-color: red; */
 }
 
 .ques {
@@ -13,7 +14,7 @@
 }
 
 .ques p {
-  font-size: 30px;
+  font-size: 23px;
   left: -10px;
   color: rgb(76, 61, 131);
 }

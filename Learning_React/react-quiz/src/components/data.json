@@ -54,62 +54,6 @@
       "image": "/HTML_Template/images/photo_2025-04-01_12-09-43.jpg",
       "ID": "top8",
       "noq": 4
-    },
-
-    "11": {
-      "name": "#01 Binary Search Quiz",
-      "image": "/HTML_Template/images/bs.jpg",
-      "ID": "top1",
-      "noq": 4
-    },
-
-    "22": {
-      "name": "#02 Two Pointer Quiz",
-      "image": "/HTML_Template/images/photo_2025-04-01_12-09-14.jpg",
-      "ID": "top2",
-      "noq": 4
-    },
-
-    "33": {
-      "name": "#03 Linked List Quiz",
-      "image": "/HTML_Template/images/photo_2025-04-01_12-09-29.jpg",
-      "ID": "top3",
-      "noq": 4
-    },
-
-    "44": {
-      "name": "#04 Graph Quiz",
-      "image": "/HTML_Template/images/photo_2025-04-01_12-09-26.jpg",
-      "ID": "top4",
-      "noq": 4
-    },
-
-    "55": {
-      "name": "#05 Tree Quiz",
-      "image": "/HTML_Template/images/photo_2025-04-01_12-09-39.jpg",
-      "ID": "top5",
-      "noq": 4
-    },
-
-    "66": {
-      "name": "#06 DP Quiz",
-      "image": "/HTML_Template/images/photo_2025-04-01_12-09-33.jpg",
-      "ID": "top6",
-      "noq": 4
-    },
-
-    "77": {
-      "name": "#07 Array Quiz",
-      "image": "/HTML_Template/images/photo_2025-04-01_12-09-36.jpg",
-      "ID": "top7",
-      "noq": 4
-    },
-
-    "88": {
-      "name": "#08 Hashing Quiz",
-      "image": "/HTML_Template/images/photo_2025-04-01_12-09-43.jpg",
-      "ID": "top8",
-      "noq": 4
     }
   },
 
@@ -1118,6 +1062,19 @@
           ]
         }
       ]
+    }
+  },
+
+  "helps": {
+    "top1": {
+      "yt": "https://www.youtube.com/results?search_query=binary+search+",
+      "gpt": "https://chatgpt.com/share/67eeb842-4d38-8003-9663-47deca8fee7e",
+      "gfg": "https://www.geeksforgeeks.org/binary-search/"
+    },
+    "top2": {
+      "yt": "https://www.youtube.com/results?search_query=two+pointer",
+      "gpt": "https://chatgpt.com/share/67eeb842-4d38-8003-9663-47deca8fee7e",
+      "gfg": "https://www.youtube.com/results?search_query=two+pointer"
     }
   }
 }
