@@ -55,8 +55,6 @@ export default function AllQuestion({ resultpage, Answers = [] }) {
     }
   }
 
-  // console.log(Answers);
-
   useEffect(() => {
     dispatch({
       type: "questions",
@@ -105,8 +103,8 @@ export default function AllQuestion({ resultpage, Answers = [] }) {
     });
   }
 
-  // console.log(qna);
-
+  const topnum = id.length === 5 ? Number(id[3] + id[4]) : Number(id[3]);
+  // console.log(topnum);
   return (
     <>
       {load && <div>Loading</div>}
@@ -123,6 +121,7 @@ export default function AllQuestion({ resultpage, Answers = [] }) {
                   options={qna[curques].options}
                   handle={change}
                 />
+                {/* {console.log(curques)} */}
               </div>
               <span
                 ref={toolref}
@@ -138,9 +137,7 @@ export default function AllQuestion({ resultpage, Answers = [] }) {
               >
                 {(curques + 1) * 25}% Completed
               </span>
-
-              <Help />
-
+              <Help topicNum={topnum - 1} />
               <progress
                 onMouseOver={handletool}
                 onMouseOut={handletool}
@@ -166,18 +163,3 @@ export default function AllQuestion({ resultpage, Answers = [] }) {
     </>
   );
 }
-
-// const slidex = document.getElementsByClassName("slide");
-// console.log(slidex);
-
-// { Cntx }
-//
-// for (let i = 0; i < slidex.length; i++) {
-//   slidex[i].style.left = `${i * 100}%`;
-// }
-
-// function slideimagex() {
-//   for (let i = 0; i < slidex.length; i++) {
-//     slidex[i].style.transform = `translateX(-${cntx * 100}%)`;
-//   }
-// }

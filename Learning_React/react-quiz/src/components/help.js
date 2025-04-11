@@ -3,11 +3,12 @@ import useHelp from "../Hooks/useHelp";
 import "../styles/global.css";
 import styles from "../styles/help.module.css";
 
-export default function Help() {
+export default function Help({ topicNum }) {
   const [disp, setdisp] = useState(false);
   const dispref = useRef();
 
   function func4() {
+    console.log("Help icon clicked!");
     if (!disp) {
       setdisp(true);
       dispref.current.style.display = "flex";
@@ -18,7 +19,12 @@ export default function Help() {
   }
 
   const { load, error, helps } = useHelp();
+  if (load) return <div>Loading</div>;
+  if (error) return <div>There was an error!</div>;
 
+  //
+  const { gfg, gpt, yt } = helps[topicNum];
+  // console.log(helps[topicNum]);
   return (
     <div className={styles.help} onClick={func4}>
       <img
@@ -28,26 +34,20 @@ export default function Help() {
       />
 
       <div className={styles.side} ref={dispref}>
-        {!load &&
-          !error &&
-          helps.map((topic, index) => (
-            <div key={index} className={styles.topicLinks}>
-              <a href={topic.gfg} target="_blank" rel="noopener noreferrer">
-                <img src="/HTML_Template/images/GeeksforGeeks.jpeg" alt="gfg" />
-              </a>
+        <a href={yt} target="_blank" rel="noopener noreferrer">
+          <img src="/HTML_Template/images/GeeksforGeeks.jpeg" alt="gfg" />
+        </a>
 
-              <a href={topic.gpt} target="_blank" rel="noopener noreferrer">
-                <img
-                  src="/HTML_Template/images/Korean Bulgogi Marinade for Ground Beef from Chapt GPT.jpeg"
-                  alt="chatgpt"
-                />
-              </a>
+        <a href={gpt} target="_blank" rel="noopener noreferrer">
+          <img
+            src="/HTML_Template/images/Korean Bulgogi Marinade for Ground Beef from Chapt GPT.jpeg"
+            alt="chatgpt"
+          />
+        </a>
 
-              <a href={topic.yt} target="_blank" rel="noopener noreferrer">
-                <img src="/HTML_Template/images/youtube.png" alt="youtube" />
-              </a>
-            </div>
-          ))}
+        <a href={gfg} target="_blank" rel="noopener noreferrer">
+          <img src="/HTML_Template/images/youtube.png" alt="youtube" />
+        </a>
       </div>
     </div>
   );

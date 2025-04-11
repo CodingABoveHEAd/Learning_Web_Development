@@ -20,7 +20,7 @@ export default function Container() {
           dataLength={topics.length}
           hasMore={true}
           loader={hasMore ? "Loading....." : ""}
-          next={() => setPage((prev) => prev + 4)}
+          next={() => setPage((prev) => prev + 13)}
         >
           {topics.map((topic) => (
             <Link to={`/quiz/${topic.ID}`} key={topic.ID}>
@@ -30,6 +30,7 @@ export default function Container() {
                 id={topic.ID}
                 noq={topic.noq}
               />
+              {/* {console.log(topic)} */}
             </Link>
           ))}
         </InfiniteScroll>

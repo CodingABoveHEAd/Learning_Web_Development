@@ -1,6 +1,6 @@
 .nav {
   display: flex;
-  height: 100px;
+  height: 93px;
   width: 100%;
   position: fixed;
   top: 0;
@@ -19,9 +19,36 @@
 .login {
   font-size: 18px;
   position: absolute;
-  right: 30px;
-  top: 40px;
+  right: 20px;
+  top: 35px;
   color: rgb(20, 20, 167);
   cursor: pointer;
   text-decoration: none;
+  /* background-color: red; */
+  /* padding-left: 40px; */
+}
+
+.spa {
+  font-size: 30px;
+  margin-top: 30px;
+  color: black;
+  /* background-color: red; */
+  padding-right: 50px;
+}
+
+.spa2 {
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 569px) {
+  .spa {
+    font-size: 20px;
+    margin-top: 33.7px;
+  }
+  .spa2 {
+    margin-right: 6px;
+  }
+  .login {
+    right: 10px;
+  }
 }

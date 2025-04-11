@@ -17,16 +17,12 @@ export default function Nav() {
                 src="/HTML_Template/images/dsalogo.webp"
                 alt="logo"
               />
-              <span style={{ fontSize: "25px", marginTop: "30px" }}>
-                DSA Quiz Website
-              </span>
+              <span className={styled.spa}>DSA Quiz</span>
             </div>
           </Link>
 
           <div className={styled.login}>
-            <span style={{ marginRight: "10px" }}>
-              {currentUser.displayName}
-            </span>
+            <span className={styled.spa2}>{currentUser.displayName}</span>
             <span onClick={logout}>Logout</span>
           </div>
         </>
@@ -38,13 +34,11 @@ export default function Nav() {
               src="/HTML_Template/images/dsalogo.webp"
               alt="logo"
             />
-            <span style={{ fontSize: "25px", marginTop: "30px" }}>
-              DSA Quiz Website
-            </span>
+            <span className={styled.spa}>DSA Quiz</span>
           </div>
 
           <div className={styled.login}>
-            <Link to="/signup" style={{ marginRight: "10px" }}>
+            <Link to="/signup" className={styled.spa2}>
               Signup
             </Link>
             <Link to="/login">Login</Link>

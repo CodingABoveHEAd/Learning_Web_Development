@@ -40,7 +40,7 @@ export default function Login() {
             <b>Login to your account</b>
           </p>
           <Illustration
-            image="/HTML_Template/images/login.jpg"
+            image="/HTML_Template/images/slogin.png"
             Alt="login image"
           />
         </div>

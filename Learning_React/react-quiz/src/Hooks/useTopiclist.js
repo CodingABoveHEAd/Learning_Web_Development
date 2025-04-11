@@ -24,7 +24,7 @@ export default function useTopicList(page) {
         topicsRef,
         orderByKey(),
         startAt("" + page),
-        limitToFirst(4)
+        limitToFirst(13)
       );
 
       try {
