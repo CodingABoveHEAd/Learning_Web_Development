@@ -12,16 +12,19 @@ import Navbar2 from "./Components/RouterDom/Navbar2";
 import Error from "./Components/RouterDom/Error";
 // import Counter from "./Components/Preact/preact1";
 import Apps from "./Components/RedUx/app";
-import Dummy from "./Components/dummy";
 
-
+import Dummy from "./Components/RedUx/dummy";
+import { store } from "./Components/RedUx/Store";
+import { Provider } from "react-redux";
 
 class App extends React.Component {
   render() {
-    
     return (
       <>
-      <Dummy/>
+        <Provider store={store}>
+          <Dummy />
+        </Provider>
+
         {/* <Apps /> */}
         {/* <Router>
           <Navbar2 />
