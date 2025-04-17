@@ -1,8 +1,9 @@
-const {sampleHandle}=require('./helpers/Handler/sampleHandler');
+const { sampleHandle } = require("./helpers/Handler/sampleHandler");
+const {userHandle}=require('./helpers/Handler/userHandle');
 
-const routes={
-    sample:sampleHandle,
-    
-}
+const routes = {
+  sample: sampleHandle,
+  user: userHandle,
+};
 
-module.exports=routes;
+module.exports = routes;
