@@ -18,7 +18,7 @@ utilities.hash = (password) => {
     const hash = crypto
       .createHmac("sha256", environments.secretKey) //environment er secret key use kora holo
       .update(password)
-      .digest("binary");
+      .digest("hex");
     return hash;
   } else {
     return false;
