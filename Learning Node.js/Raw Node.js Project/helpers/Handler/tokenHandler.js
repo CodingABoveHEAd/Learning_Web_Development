@@ -47,6 +47,7 @@ handler._token.post = (requestProperties, callBack) => {
   //post for create a new user token
   const phone = details.Phone(requestProperties);
   const password = details.Password(requestProperties);
+  console.log(phone);
 
   if (phone && password) {
     data.read("Users", phone, (err1, userData) => {
@@ -172,7 +173,7 @@ handler._token.delete = (requestProperties, callBack) => {
     }
 };
 
-handler._token.verify = (tokenId, phone, callBack) => {
+handler._token.verifyToken = (tokenId, phone, callBack) => {
   //verify token er jonno
   data.read("Tokens", tokenId, (err, tokenData) => {
     const token = { ...parseJson(tokenData) };

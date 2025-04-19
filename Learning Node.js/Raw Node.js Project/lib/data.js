@@ -6,7 +6,6 @@ const path = require("path");
 const lib = {};
 //base directory of the data folder
 lib.basedir = path.join(__dirname, "../.data/");
-console.log(lib.basedir);
 
 //write data to file(steps-->open-write-close)
 lib.create = (dir, file, data, callback) => {
