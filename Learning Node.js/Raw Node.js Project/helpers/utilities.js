@@ -8,9 +8,11 @@ utilities.parseJson = (jsonString) => {
     const obj = JSON.parse(jsonString);
     return obj;
   } catch (error) {
+    console.error("JSON parsing failed:", error.message); 
     return {};
   }
 };
+
 
 //hashing function
 utilities.hash = (password) => {

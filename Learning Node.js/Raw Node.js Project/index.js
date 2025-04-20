@@ -47,4 +47,4 @@ app.ReqRes = handleReqRes;
 
 //start the server
 app.createServer();
-console.log(app);
+// console.log(app);

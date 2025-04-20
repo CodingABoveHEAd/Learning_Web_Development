@@ -3,6 +3,8 @@
 // Author:Niloy Chowdhury
 // Date;16/4/2025
 
+const { max } = require("lodash");
+
 //dependecies
 
 //module scaffolding
@@ -11,13 +13,15 @@ const environments={};
 environments.staging={
     port:3000,
     envName : 'staging',
-    secretKey:'dg748ffyuf683gt4fgyfew7f'
+    secretKey:'dg748ffyuf683gt4fgyfew7f',
+    maxChecks:20,
 };
 
 environments.production={
     port:5000,
     envName : 'production',
-    secretKey:'ew4q54we25r3ry480gy54gy8h'
+    secretKey:'ew4q54we25r3ry480gy54gy8h',
+    maxChecks:20,
 };
 
 //determine which environment has passed

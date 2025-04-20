@@ -47,7 +47,6 @@ handler._token.post = (requestProperties, callBack) => {
   //post for create a new user token
   const phone = details.Phone(requestProperties);
   const password = details.Password(requestProperties);
-  console.log(phone);
 
   if (phone && password) {
     data.read("Users", phone, (err1, userData) => {
@@ -141,36 +140,36 @@ handler._token.put = (requestProperties, callBack) => {
 handler._token.delete = (requestProperties, callBack) => {
   //delete for delete user data
   const tokenId =
-      typeof requestProperties.queryStringObject.tokenId === "string" &&
-      requestProperties.queryStringObject.tokenId.trim().length === 64
-        ? requestProperties.queryStringObject.tokenId.trim()
-        : false;
-  
-    if (tokenId) {
-      data.read("Tokens",tokenId, (err, userToken) => {
-        if (!err && userToken) {
-          data.delete("Tokens", tokenId, (err1) => {
-            if (err1) {
-              callBack(200, {
-                message: "Token deleted successfully",
-              });
-            } else {
-              callBack(500, {
-                message: "There was a problem in the server side",
-              });
-            }
-          });
-        } else {
-          callBack(404, {
-            message: "Token not found",
-          });
-        }
-      });
-    } else {
-      callBack(400, {
-        message: "Token doesn't exist",
-      });
-    }
+    typeof requestProperties.queryStringObject.tokenId === "string" &&
+    requestProperties.queryStringObject.tokenId.trim().length === 64
+      ? requestProperties.queryStringObject.tokenId.trim()
+      : false;
+
+  if (tokenId) {
+    data.read("Tokens", tokenId, (err, userToken) => {
+      if (!err && userToken) {
+        data.delete("Tokens", tokenId, (err1) => {
+          if (err1) {
+            callBack(200, {
+              message: "Token deleted successfully",
+            });
+          } else {
+            callBack(500, {
+              message: "There was a problem in the server side",
+            });
+          }
+        });
+      } else {
+        callBack(404, {
+          message: "Token not found",
+        });
+      }
+    });
+  } else {
+    callBack(400, {
+      message: "Token doesn't exist",
+    });
+  }
 };
 
 handler._token.verifyToken = (tokenId, phone, callBack) => {
@@ -187,6 +186,6 @@ handler._token.verifyToken = (tokenId, phone, callBack) => {
       callBack(false);
     }
   });
-}
+};
 
 module.exports = handler;
