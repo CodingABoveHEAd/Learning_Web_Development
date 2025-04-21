@@ -1,9 +1,1 @@
-{
-  "checkId": "85b09a501efffd13cbabaca3bd6826ac7d9df3935c3b4f5e0535b7e4d52e3edc",
-  "phone": "01714835070",
-  "protocol": "http",
-  "url": "google.com",
-  "method": "get",
-  "successCodes": [200, 201],
-  "timeoutSeconds": 2
-}
+{"checkId":"85b09a501efffd13cbabaca3bd6826ac7d9df3935c3b4f5e0535b7e4d52e3edc","phone":"01714835070","protocol":"http","url":"google.com","method":"get","successCodes":[200,201],"timeoutSeconds":2,"state":"down","lastChecked":1745252067898}

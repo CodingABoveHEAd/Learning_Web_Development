@@ -3,13 +3,20 @@
 // Author:Niloy Chowdhury
 // Date;15/4/2025
 
-const http = require("http");
-const { handleReqRes } = require("./helpers/handleReqRes");
-const environment = require("./helpers/Environments");
-const data = require("./lib/data");
+
+const server = require("./lib/server");
+const worker = require("./lib/worker");
 
 //app object - module scaffolding
 const app = {};
+
+// sendTwilioSms("Hello from Node JS", "01627242435", (err, data) => {
+//   if(!err && data){
+//       console.log("Message sent successfully", data);
+//   }else{
+//       console.log("There was an error while sending the message", err);
+//   }
+// }  );
 
 // data.create('test','newFile',{'name':'Bangladesh','language' : 'Bangla'},(err)=>{
 //   console.log('error was',err);
@@ -33,18 +40,15 @@ const app = {};
 //   port: 3500,
 // };
 
-//create server
-app.createServer = () => {
-  const server = http.createServer(app.ReqRes);
-  server.listen(environment.port, () => {
-    // console.log(`Environment variable is ${process.env.NODE_ENV}`);
-    console.log(`Listening to port number ${environment.port}`);
-  });
-};
 
-//handle request response
-app.ReqRes = handleReqRes;
+app.init=()=>{
+  //start the server
+  server.init();
+  //start the worker
+  worker.init();
+}
 
-//start the server
-app.createServer();
+app.init();
+module.exports = app;
+
 // console.log(app);
