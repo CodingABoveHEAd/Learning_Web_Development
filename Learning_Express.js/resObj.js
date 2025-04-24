@@ -6,7 +6,13 @@ app.use(express.json());
 app.set("view engine", "ejs");
 
 app.get("/about", (req, res) => {
-    res.sendStatus(403);
+  // res.sendStatus(200);
+  res.cookie("name", "Niloy Chowdhury");
+  // res.location('/test');
+  res.set("Nishan", "Schoolboy");
+  res.set("Niloy", "Varcityboy");
+  console.log(res.get("Nishan"));
+  res.end();
 });
 
 app.listen(3000, () => {
