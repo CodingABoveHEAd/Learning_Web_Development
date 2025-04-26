@@ -1,8 +1,8 @@
 const express = require("express");
 const todoSchema = require("../schemas/todoSchema");
 const mongoose = require("mongoose");
+const checkLogin = require("../middlewares/checkLogin");
 const Todo = new mongoose.model("Todo", todoSchema);
-
 const router = express.Router();
 
 //get active todo's using instance method
@@ -55,12 +55,15 @@ router.get("/language", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+router.get("/", checkLogin, async (req, res) => {
+  console.log(req.username);
+  console.log(req.userId);
+  console.log();
   try {
     const data = await Todo.find({ status: "active" }, { _id: 0, __v: 0 });
     res.status(200).json({
       data,
-      message: "Todo was inserted successfully",
+      message: "Todo was displayed successfully",
     });
   } catch (err) {
     res.status(500).json({
