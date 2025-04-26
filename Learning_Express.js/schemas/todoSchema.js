@@ -16,4 +16,30 @@ const todoSchema = mongoose.Schema({
   },
 });
 
-module.exports=todoSchema;
+// todoSchema.statics.findActive = function () {
+//   return this.find({ status: 'active' },{__v : 0,_id:0});
+// };
+
+// todoSchema.methods.findActive = function () {
+//   return this.model("Todo").find({ status: "active" });
+// };
+
+todoSchema.methods = {
+  findActive:function(){
+    return mongoose.model("Todo").find({ status: "inactive" });
+  },
+};
+
+todoSchema.statics = {
+  findByJs: function(){
+    return this.find({ title: /c/i });
+  },
+};
+
+todoSchema.query = {
+  byLanguage: function(language) {
+    return this.find({ title: new RegExp(language, "i") });
+  },
+};
+
+module.exports = todoSchema;

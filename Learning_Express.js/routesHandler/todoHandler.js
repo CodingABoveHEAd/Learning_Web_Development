@@ -1,15 +1,63 @@
 const express = require("express");
 const todoSchema = require("../schemas/todoSchema");
 const mongoose = require("mongoose");
-const todo = new mongoose.model("Todo", todoSchema);
+const Todo = new mongoose.model("Todo", todoSchema);
 
 const router = express.Router();
 
-// router.get("/", async (req, res) => {});
+//get active todo's using instance method
+router.get("/active", async (req, res) => {
+  try {
+    const todo = new Todo();
+    const data = await todo.findActive();
+    console.log(data);
+    res.status(200).json({
+      data,
+      message: "All active users successfully displayed",
+    });
+  } catch (err) {
+    res.status(500).json({
+      error: "Server side error",
+    });
+  }
+});
+
+//get todo's containing js in title using static method
+router.get("/js", async (req, res) => {
+  try {
+    const data = await Todo.findByJs();
+    console.log(data);
+    res.status(200).json({
+      data,
+      message: "All users with title containing Js successfully displayed",
+    });
+  } catch (err) {
+    res.status(500).json({
+      error: "Server side error",
+    });
+  }
+});
+
+//get active todo's using instance method
+router.get("/language", async (req, res) => {
+  try {
+    // const todo = new Todo();
+    const data = await Todo.find().byLanguage("learn");
+    console.log(data);
+    res.status(200).json({
+      data,
+      message: "All active users successfully displayed",
+    });
+  } catch (err) {
+    res.status(500).json({
+      error: "Server side error",
+    });
+  }
+});
 
 router.get("/", async (req, res) => {
   try {
-    const data = await todo.find({ status: "active" }, { _id: 0, __v: 0 });
+    const data = await Todo.find({ status: "active" }, { _id: 0, __v: 0 });
     res.status(200).json({
       data,
       message: "Todo was inserted successfully",
@@ -23,7 +71,7 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    const data = await todo.find({ _id: req.params.id }, { _id: 0, __v: 0 });
+    const data = await Todo.find({ _id: req.params.id }, { _id: 0, __v: 0 });
     res.status(200).json({
       data,
       message: "Todo was inserted successfully",
@@ -39,7 +87,7 @@ router.post("/", async (req, res) => {
   //   const newTodo = new todo(req.body);
 
   try {
-    await todo.create(req.body);
+    await Todo.create(req.body);
     res.status(200).json({
       message: "Todo was inserted successfully",
     });
@@ -52,7 +100,7 @@ router.post("/", async (req, res) => {
 
 router.post("/all", async (req, res) => {
   try {
-    await todo.insertMany(req.body);
+    await Todo.insertMany(req.body);
     res.status(200).json({
       error: "All todos saved successfully",
     });
@@ -65,7 +113,7 @@ router.post("/all", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   try {
-    await todo.updateOne(
+    await Todo.updateOne(
       { _id: req.params.id },
       {
         $set: {
@@ -85,7 +133,7 @@ router.put("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
-    await todo.deleteOne({ _id: req.params.id });
+    await Todo.deleteOne({ _id: req.params.id });
     res.status(200).json({
       message: "Todo was deleted successfully",
     });
