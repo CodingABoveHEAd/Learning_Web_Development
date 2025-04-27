@@ -7,7 +7,7 @@ const dotenv=require('dotenv');
 const app = express();
 
 app.use(express.json());
-dotenv.config();
+ dotenv.config();
 //database connection with mongoose
 async function connectToDB() {
   try {
@@ -31,7 +31,7 @@ errorHandler = (err, req, res, next) => {
   }
 };
 
-app.use(errorHandler);
+ app.use(errorHandler);
 
 app.listen(3000, () => {
   console.log("app listening on 3000 port");

@@ -6,13 +6,15 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 // console.log(typeof hash);
-const User = new mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 
 const router = express.Router();
 
 //get active todo's using instance method
 router.post("/signup", async (req, res) => {
+  console.log(req.body);
   const data = { ...req.body };
+  console.log(req.body);
   // data.password=hash(data.password);
   try {
     data.password = await bcrypt.hash(data.password, 10);
@@ -22,8 +24,9 @@ router.post("/signup", async (req, res) => {
       message: "user was created successfully",
     });
   } catch (error) {
+    console.log(error);
     res.status(500).json({
-      error: "Signup falied",
+      error: "Signup failed",
     });
   }
 });
@@ -31,7 +34,7 @@ router.post("/signup", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const user = await User.find({ name: req.body.name });
-    if (user[0] && user.length>0) {
+    if (user[0] && user.length > 0) {
       const valid = await bcrypt.compare(req.body.password, user[0].password);
       if (valid) {
         //generate token
@@ -42,7 +45,7 @@ router.post("/login", async (req, res) => {
           },
           process.env.JWT_SECRET,
           {
-            expiresIn: "1h",
+            expiresIn: "1d",
           }
         );
         res.status(200).json({
@@ -62,6 +65,22 @@ router.post("/login", async (req, res) => {
   } catch {
     res.status(401).json({
       error: "authentication failed",
+    });
+  }
+});
+
+router.get("/allTodo", async (req, res) => {
+  try {
+    const users = await User.find({ status: "active" }).
+    populate("todos");
+    res.status(200).json({
+      data:users,
+      message: "Successful",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      error: "There was an error",
     });
   }
 });

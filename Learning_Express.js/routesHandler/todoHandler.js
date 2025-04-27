@@ -1,9 +1,12 @@
 const express = require("express");
 const todoSchema = require("../schemas/todoSchema");
+const userSchema = require("../schemas/userSchema");
 const mongoose = require("mongoose");
 const checkLogin = require("../middlewares/checkLogin");
-const Todo = new mongoose.model("Todo", todoSchema);
 const router = express.Router();
+const Todo = mongoose.model("Todo", todoSchema);
+
+const User = mongoose.model("User", userSchema);
 
 //get active todo's using instance method
 router.get("/active", async (req, res) => {
@@ -56,16 +59,14 @@ router.get("/language", async (req, res) => {
 });
 
 router.get("/", checkLogin, async (req, res) => {
-  console.log(req.username);
-  console.log(req.userId);
-  console.log();
   try {
-    const data = await Todo.find({ status: "active" }, { _id: 0, __v: 0 });
+    const data = await Todo.find({}).populate("user");
     res.status(200).json({
       data,
       message: "Todo was displayed successfully",
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json({
       error: "Server side error",
     });
@@ -86,13 +87,17 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", checkLogin, async (req, res) => {
   //   const newTodo = new todo(req.body);
+  const data = { ...req.body };
+  data.user = req.userId;
 
   try {
-    await Todo.create(req.body);
+    const td = await Todo.create(data);
+    await User.updateOne({ _id: req.userId }, 
+      { $push: { todos: td._id } });
     res.status(200).json({
-      message: "Todo was inserted successfully",
+      message: "Todo was saved successfully",
     });
   } catch (err) {
     res.status(500).json({

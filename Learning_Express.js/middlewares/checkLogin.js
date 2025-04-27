@@ -4,7 +4,9 @@ const checkLogin = (req, res, next) => {
   const { authorization } = req.headers;
   try {
     const token = authorization.split(" ")[1];
+    
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    
     if (decoded) {
       const { username, userId } = decoded;
       req.username = username;
@@ -16,6 +18,7 @@ const checkLogin = (req, res, next) => {
       });
     }
   } catch (error) {
+    console.log(error);
     next("Authentication error");
   }
 };
