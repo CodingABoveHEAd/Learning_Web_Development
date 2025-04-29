@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>users name is <%= name %> & his roll is <%= roll %></h3>
+    
+    <h2>He knows the following languages</h2>
+    <% if(languages.length>0){ %>
+    <ul> 
+       <% for(let i=0;i<languages.length;i++){ %>
+            <li><%= languages[i] %></li>
+      <% } %>
+    </ul>
+    <%- include("form") %>
+    <% }else{ %>
+        <p><%= det %></p>
+   <% } %>
+</body>
+</html>

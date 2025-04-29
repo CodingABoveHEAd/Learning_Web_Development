@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 style="text-align: center">Enter your details and note</h1>
+    <form action="/adduser" method="POST">
+      <label>Name:</label><br />
+      <input type="text" placeholder="name" name="name" /><br /><br />
+      <label>UserName:</label><br />
+      <input type="text" placeholder="username" name="username" /><br /><br />
+      <label>Email:</label><br />
+      <input type="email" placeholder="email" name="email" /><br /><br />
+      <label>Password:</label><br />
+      <input
+        type="password"
+        placeholder="password"
+        name="password"
+      /><br /><br />
+      <label>Your note</label><br />
+      <textarea
+        name="note"
+        rows="5"
+        cols="40"
+        placeholder="Max 200 characters"
+      ></textarea
+      ><br />
+      <button type="submit">Submit</button>
+    </form>
+    <p style="text-align: center;">Or</p>
+    <a
+      style="
+        font-size: 19px;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        color: black;
+      "
+      href="/getuser"
+      >Goto get user form</a
+    >
+  </body>
+</html>
