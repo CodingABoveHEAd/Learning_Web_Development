@@ -1,8 +1,28 @@
-const express=require('express');
-const {getUsers}=require('../controllers/usersController');
+const express = require("express");
+const {
+  getUsers,
+  addUser,
+  removeUser,
+} = require("../controllers/usersController");
+const { decorateResponse } = require("../middlewares/common/decorateResponse");
+const avatarUpload = require("../middlewares/users/avatarUpload");
+const {
+  userValidators,
+  addUserValidationHandler,
+} = require("../middlewares/users/usersValidator");
 
-const router=express.Router();
+const router = express.Router();
 
-router.get('/',getUsers);
+router.get("/", decorateResponse("Users"), getUsers);
 
-module.exports=router;
+router.post(
+  "/",
+  avatarUpload,
+  userValidators,
+  addUserValidationHandler,
+  addUser
+);
+
+router.delete("/:id", removeUser);
+
+module.exports = router;

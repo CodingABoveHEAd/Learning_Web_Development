@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../public/css/users.css" />
+    <style>
+      .form {
+        display: none;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.622);
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form">
+      <div class="formbody">
+        <img
+          title="go back"
+          class="back"
+          onclick="show()"
+          src="../images/Cross-Close-256.png"
+          alt="back"
+        />
+        <h1 style="color: white; margin-bottom: 50px">Create new user</h1>
+        <input placeholder="enter name" type="text" />
+        <input placeholder="enter email" type="email" />
+        <input placeholder="enter mobile" type="number" />
+        <input placeholder="enter password" type="password" />
+        <input type="file" style="background-color: rgba(0, 0, 0, 0)" />
+        <button type="submit">Submit</button>
+      </div>
+    </div>
+    <div class="headings">
+      <div class="contents"><a href="">Login</a></div>
+      <div class="contents"><a href="">Inbox</a></div>
+      <div class="contents" style="border: 0px"><a href="">Users</a></div>
+    </div>
+    <div class="users">
+      <h1 class="head">Manage Users</h1>
+      <div id="addimg" title="Add user">
+        <img
+          style="cursor: pointer"
+          onclick="show()"
+          src="../images/Add-New-256.png"
+          alt="add image"
+        />
+      </div>
+      <div class="user">
+        <div class="head">
+          <p style="margin-left: 17px" class="items"><b>Name</b></p>
+          <p class="items"><b>Email</b></p>
+          <p style="margin-right: 17px" class="items"><b>Manage</b></p>
+        </div>
+        <div class="person">
+          <div class="avatar">
+            <img src="../images/avatar1.jpg" alt="person_image" />
+            <p>person1</p>
+          </div>
+          <p>person1@gmail.com</p>
+          <div style="margin-right: 30px; margin-top: 4px">
+            <img src="../images/Garbage-Closed-256.png" alt="remove_img" />
+          </div>
+        </div>
+        <div class="person">
+          <div class="avatar">
+            <img src="../images/avatar2.jpg" alt="person_image" />
+            <p>Niloy</p>
+          </div>
+          <p>chowdhuryniloy819@gmail.com</p>
+          <div style="margin-right: 30px; margin-top: 4px">
+            <img src="../images/Garbage-Closed-256.png" alt="remove_img" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // const form = document.querySelector(".form");
+      const form = document.getElementsByClassName('form')[0];
+      show = () => {
+        form.style.display = form.style.display === "block" ? "none" : "block";
+      };
+    </script>
+  </body>
+</html>

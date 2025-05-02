@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  
+  background: linear-gradient(100deg,#5473ff, #0077b6,#029ebd );
+}
+
+.headings {
+  display: flex;
+  height: 40px;
+  /* background-color: aqua; */
+  justify-content: center;
+  margin-top: 17px;
+}
+
+.contents {
+  /* border-right: 7px; */
+
+  border-right: 2px solid black;
+
+  padding: 3px 12px;
+  font-size: 21px;
+}
+
+.contents a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  display: inline-block;
+  transition: transform .5s;
+  font-weight: 1500px;
+}
+
+.contents a:hover {
+  transform: translateY(-3px);
+}
+
+.login {
+  display: flex;
+  height: 800px;
+  width: 90%;
+  max-width: 1200px;
+  border: 1px solid black;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.508);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.login:hover {
+  /* font-size: 18px; */
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.874);
+}
+
+.left {
+  width: 40%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: 1px solid black;
+  height: 100%;
+  background-color: rgb(39, 36, 36);
+}
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 1px solid black;
+  height: 100%;
+  background-color: rgb(36, 28, 28);
+}
+
+.right img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  color: white;
+}
+
+form {
+  margin-top: 20px;
+  width: 100%;
+}
+
+input {
+  display: block;
+  margin: 20px auto 0 auto; 
+  width: 90%;
+  height: 45px;
+  border-radius: 5px;
+  font-size: 18px;
+  padding-left: 5px;
+}
+
+button {
+  display: block;
+  margin: 20px auto 0 auto;
+  color: white;
+  font-size: 19px;
+  width: 160px;
+  height: 40px;
+  border-radius: 7px;
+  background: linear-gradient(#00b4d8, #4361ee);
+  cursor: pointer;
+}
+
+.left img{
+  display: block;
+  margin: auto;
+  margin-top: 120px;
+  width: 100%;
+  max-width: 400px;
+  height: 50%;
+}

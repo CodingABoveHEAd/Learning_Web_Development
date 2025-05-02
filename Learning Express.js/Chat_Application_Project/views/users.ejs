@@ -1,12 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
-</head>
-<body>
-    <p><%= title %></p>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Users</title>
+    <link rel="stylesheet" href="/css/users.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+  </head>
+  <body>
+    <%- include('./partials/form.ejs') %>
+
+    <div class="headings">
+      <div class="contents"><a href="/login">Login</a></div>
+      <div class="contents"><a href="/users">Inbox</a></div>
+      <div class="contents" style="border: 0px"><a href="">Users</a></div>
+    </div>
+
+    <div class="users">
+      <h1 class="head">Manage Users</h1>
+      <div id="addimg" title="Add user">
+        <img
+          style="cursor: pointer"
+          onclick="show()"
+          src="/images/Add-New-256.png"
+          alt="add image"
+        />
+      </div>
+
+      <div class="user">
+        <div class="head">
+          <p style="margin-left: 17px" class="items"><b>Name</b></p>
+          <p class="items"><b>Email</b></p>
+          <p style="margin-right: 17px" class="items"><b>Manage</b></p>
+        </div>
+
+        <% users.forEach(function(user) { %>
+        <div class="person" id="<%= user._id %>">
+          <div class="avatar">
+            <% if (user.avatar) { %>
+            <img
+              src="<%= '/uploads/avatars/' + user.avatar %>"
+              alt="person_image"
+            />
+            <% } else { %>
+            <img src="/uploads/avatars/no_person.jpg" alt="person_image" />
+            <% } %>
+            <p><%= user.name %></p>
+          </div>
+          <p><%= user.email %></p>
+          <div style="margin-right: 30px; margin-top: 4px">
+            <img
+              src="/images/Garbage-Closed-256.png"
+              alt="remove_img"
+              style="cursor: pointer"
+              onclick="deleteUser('<%= user._id %>')"
+            />
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script>
+      async function deleteUser(userId) {
+        try {
+          let response = await fetch(`/users/${userId}`, {
+            method: "DELETE",
+          });
+          let result = await response.json();
+
+          if (result.errors) {
+            Toastify({
+              text: "Error occurred while deleting user",
+              duration: 3000,
+              gravity: "top",
+              position: "right",
+              style: {
+                background: "linear-gradient(to right, #ff5f6d, #ffc371)",
+              },
+            }).showToast();
+          } else {
+            Toastify({
+              text: "User removed successfully! Reloading...",
+              duration: 3000,
+              gravity: "top",
+              position: "right",
+              style: {
+                background:
+                  "linear-gradient(to right, #dc2f02, #e85d04,#f48c06)",
+              },
+            }).showToast();
+            location.reload();
+          }
+        } catch (err) {
+          Toastify({
+            text: "Network or server error",
+            duration: 3000,
+            gravity: "top",
+            position: "right",
+            style: {
+              background: "linear-gradient(to right, #ff5f6d, #ffc371)",
+            },
+          }).showToast();
+        }
+      }
+    </script>
+  </body>
 </html>

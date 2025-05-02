@@ -1,8 +1,11 @@
 const express=require('express');
-const {getLogin}=require('../controllers/loginController');
+const {getLogin,login}=require('../controllers/loginController');
+const {decorateResponse}=require('../middlewares/common/decorateResponse');
 
 const router=express.Router();
 
-router.get('/',getLogin);
+router.get('/',decorateResponse('Login'),getLogin);
+
+router.post('/',login);
 
 module.exports=router;

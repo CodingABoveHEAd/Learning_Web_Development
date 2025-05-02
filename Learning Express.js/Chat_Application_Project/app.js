@@ -34,9 +34,9 @@ const connectMongo = async () => {
 };
 connectMongo();
 
-app.use("/login",decorateResponse('Login'),loginRouter);
-app.use("/users",decorateResponse('Users'), usersRouter);
-app.use("/inbox",decorateResponse('inbox'), inboxRouter);
+app.use("/login",loginRouter);
+app.use("/users",usersRouter);
+app.use("/inbox",decorateResponse('Inbox'), inboxRouter);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
