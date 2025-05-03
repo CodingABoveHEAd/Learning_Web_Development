@@ -12,12 +12,7 @@
   </head>
   <body>
     <%- include('./partials/form.ejs') %>
-
-    <div class="headings">
-      <div class="contents"><a href="/login">Login</a></div>
-      <div class="contents"><a href="/users">Inbox</a></div>
-      <div class="contents" style="border: 0px"><a href="">Users</a></div>
-    </div>
+    <%- include('./partials/head.ejs') %>
 
     <div class="users">
       <h1 class="head">Manage Users</h1>
@@ -79,7 +74,8 @@
               gravity: "top",
               position: "right",
               style: {
-                background: "linear-gradient(to right, #ff5f6d, #ffc371)",
+                background: 
+                "linear-gradient(to right, #ff5f6d, #ffc371)",
               },
             }).showToast();
           } else {
@@ -93,7 +89,10 @@
                   "linear-gradient(to right, #dc2f02, #e85d04,#f48c06)",
               },
             }).showToast();
-            location.reload();
+            document.getElementById(userId).remove();
+            setTimeout(() => {
+              location.reload();
+            }, 3000);
           }
         } catch (err) {
           Toastify({

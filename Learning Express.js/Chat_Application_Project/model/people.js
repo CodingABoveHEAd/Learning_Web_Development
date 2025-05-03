@@ -12,7 +12,7 @@ const peopleSchema = mongoose.Schema(
       requierd: true,
       lowerCase: true,
     },
-    phone: {
+    mobile: {
       type: String,
       requierd: true,
     },

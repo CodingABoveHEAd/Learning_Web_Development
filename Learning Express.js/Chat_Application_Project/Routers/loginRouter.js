@@ -1,11 +1,27 @@
-const express=require('express');
-const {getLogin,login}=require('../controllers/loginController');
-const {decorateResponse}=require('../middlewares/common/decorateResponse');
+const express = require("express");
+const { getLogin, login, logout } = require("../controllers/loginController");
+const { decorateResponse } = require("../middlewares/common/decorateResponse");
+const {
+  doLoginValidationHandler,
+  doLoginValidators,
+} = require("../middlewares/login/loginValidators");
 
-const router=express.Router();
+const { redirectLoggedIn } = require("../middlewares/common/checkLogin");
 
-router.get('/',decorateResponse('Login'),getLogin);
+const page_title = "Login";
 
-router.post('/',login);
+const router = express.Router();
 
-module.exports=router;
+router.get("/", decorateResponse(page_title), getLogin);
+
+router.post(
+  "/",
+  decorateResponse(page_title),
+  doLoginValidators,
+  doLoginValidationHandler,
+  login
+);
+
+router.delete("/", logout);
+
+module.exports = router;

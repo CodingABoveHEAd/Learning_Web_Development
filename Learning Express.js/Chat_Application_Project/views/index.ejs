@@ -5,26 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/css/login.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
   </head>
   <body>
-    <div class="headings">
-      <div class="contents"><a href="/login">Login</a></div>
-      <div class="contents"><a href="">Inbox</a></div>
-      <div class="contents" style="border: 0px;"><a href="/users">Users</a></div>
-    </div>
+    <%- include('./partials/head.ejs') %>
+
     <div class="login">
       <div class="left">
-        <img src="/images/Free_Vector___Email_campaign_concept_illustration-removebg-preview.png" alt="sign_in">
+        <img
+          src="/images/Free_Vector___Email_campaign_concept_illustration-removebg-preview.png"
+          alt="sign_in"
+        />
       </div>
       <div class="right">
-       <div class="logo"><img src="/images/chatlogo-removebg-preview.png" alt=""></div> 
-       <div style="font-size: 20px; margin-top: 10px; color: white;">Login chat application</div>
-       
-        <form action="submit">
-          <input style="margin-top: 5px;" type="text" placeholder="enter mobile or email">
-          <input type="password" placeholder="enter password">
-          <button>submit</button>
-       </form>
+        <div class="logo">
+          <img src="/images/chatlogo-removebg-preview.png" alt="" />
+        </div>
+        <div style="font-size: 20px; margin-top: 10px; color: white">
+          Login - Chat Application
+        </div>
+
+        <form action="/login" method="POST">
+          <input
+            style="margin-top: 5px"
+            type="text"
+            placeholder="enter mobile or email"
+            name="username"
+            value="<%= data.username %>"
+          />
+          <% if(errors.username){ %>
+          <p class="error show"><%= errors.username.msg %></p>
+          <% }; %>
+
+          <input type="password" placeholder="enter password" name="password" />
+          <% if(errors.password){ %>
+          <p class="error show"><%= errors.password.msg %></p>
+          <% }; %> <% if(errors.common){ %>
+          <p class="error show"><%= errors.common.msg %></p>
+          <% }; %>
+          <button type="submit">submit</button>
+        </form>
       </div>
     </div>
   </body>

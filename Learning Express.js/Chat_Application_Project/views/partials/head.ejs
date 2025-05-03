@@ -1,0 +1,44 @@
+<% if(loggedInUser && loggedInUser.username){ %>
+<div class="headings">
+  <div class="contents" onclick="logout()"><a href="/login">Logout</a></div>
+  <div class="contents"><a href="/inbox">Inbox</a></div>
+  <div class="contents" style="border: 0px">
+    <a href="/users">Users</a>
+  </div>
+</div>
+<% }else{ %>
+<div class="headings">
+  <div class="contents"><a href="/login">Login</a></div>
+  <div class="contents"><a href="/inbox">Inbox</a></div>
+  <div class="contents" style="border: 0px">
+    <a href="/users">Users</a>
+  </div>
+</div>
+
+<% }; %>
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script>
+  logout = async () => {
+    try {
+       await fetch("/login", {
+        method: "DELETE",
+      });
+      Toastify({
+        text: "You are being logged-out",
+        duration: 2000,
+        gravity: "top",
+        position: "right",
+        style: {
+          background: "linear-gradient(to right, #ff5f6d, #ffc371)",
+        },
+      }).showToast();
+      console.log("hi");
+      setTimeout(() => {
+        console.log("logged out");
+        window.location.replace("/login");
+      }, 2000);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+</script>

@@ -36,7 +36,7 @@ connectMongo();
 
 app.use("/login",loginRouter);
 app.use("/users",usersRouter);
-app.use("/inbox",decorateResponse('Inbox'), inboxRouter);
+app.use("/inbox", inboxRouter);
 
 app.use(notFoundHandler);
 app.use(errorHandler);

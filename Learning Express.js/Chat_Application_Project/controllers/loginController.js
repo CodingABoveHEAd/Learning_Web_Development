@@ -1,21 +1,23 @@
-const { compare } = require("bcrypt");
-const { User } = require("../model/people");
+// const { compare } = require("bcrypt");
+const User = require("../model/people");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const createError = require("http-errors");
 
 getLogin = (req, res, next) => {
   res.render("index");
 };
 
 const login = async (req, res, next) => {
+  // console.log(req.body);
   try {
     const user = await User.findOne({
-      $or: [{ email: req.body.username }, { mobile: req.body.mobile }],
+      $or: [{ email: req.body.username }, { mobile: req.body.username }],
     });
     if (user && user._id) {
       const isValidPassword = await bcrypt.compare(
-        user.password,
-        req.body.password
+        req.body.password,
+        user.password
       );
       if (isValidPassword) {
         const userObject = {
@@ -27,7 +29,7 @@ const login = async (req, res, next) => {
         const token = jwt.sign(userObject, process.env.SECRET_KEY, {
           expiresIn: process.env.JWT_EXPIRE,
         });
-        res.cookie(COOKIE_NAME, token, {
+        res.cookie(process.env.COOKIE_NAME, token, {
           maxAge: process.env.JWT_EXPIRE,
           httpOnly: true,
           signed: true,
@@ -35,10 +37,10 @@ const login = async (req, res, next) => {
         res.locals.loggedInUser = userObject;
         res.render("inbox");
       } else {
-        throw createHttpError("Login failed!Try again later");
+        throw createError("Wrong/invalid password!");
       }
     } else {
-      throw createHttpError("Login failed!Try again later");
+      throw createError("User not found!");
     }
   } catch (error) {
     res.render("index", {
@@ -54,7 +56,13 @@ const login = async (req, res, next) => {
   }
 };
 
+const logout = (req, res) => {
+  res.clearCookie(process.env.COOKIE_NAME);
+  res.send("Logged out");
+};
+
 module.exports = {
   getLogin,
   login,
+  logout,
 };
