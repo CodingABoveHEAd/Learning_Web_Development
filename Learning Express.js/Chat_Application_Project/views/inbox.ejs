@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
     <link rel="stylesheet" href="/css/inbox.css" />
     <link
       rel="stylesheet"
@@ -13,9 +13,109 @@
   </head>
   <body>
     <%- include('./partials/head.ejs') %>
+    <div id="Form">
+      
+        <form id="addUserForm"> 
+          <input type="text" id="nameInput" placeholder="Enter name" required />
+          <input type="text" id="mobileInput" placeholder="Enter mobile" required />
+          <button type="submit">Add User</button>
+          <span onclick="show()">Go back</span>
+        </form>
+
+    </div>
+
 
     <div class="login">
-      <div class="left"></div>
+      <div class="left">
+        <button id="allusers" onclick="func2()">Allusers</button>
+        <a href="#" id="addimg" title="Add user" onclick="show()">
+          <img
+            style="cursor: pointer"
+            src="/images/Add-New-256.png"
+            alt="add image"
+          />
+        </a>
+
+        <div id="chat_users">
+          <% if (users && users.length > 0) { %>
+            <% users.forEach(user => { %>
+          <a href="" class="user">
+            <img src="/uploads/avatars/no_person.jpg" alt="chat users" />
+            <p style="margin-top: 8px"><%= user.Toname %></p>
+          </a>
+          <% }) %>
+          <% } else { %>
+            <p>No chat users found.</p>
+          <% } %>
+          
+          <title>Inbox</title>
+        </div>
+      </div>
+      <div class="right">
+
+        <div class="chat_head">
+          <p><b>UserName</b></p>
+          <a title="remove chat" href="###"
+            ><img src="/images/Garbage-Closed-256.png" alt="remove_chat"
+          /></a>
+        </div>
+
+        <div class="messages">
+          
+          <p>hi</p>
+          <p>hi</p>
+
+        </div>
+
+        <div class="msg_form">
+          <input type="text" ></input>
+          <img title="send message" src="/images/send.png" alt="">
+        </div>
+
+      </div>
     </div>
+
+    <script>
+      const Form=document.getElementById('Form');
+      const addimg=document.getElementById('addimg');
+      const adduserform=document.getElementById('addUserForm');
+      const nameInput=document.getElementById('nameInput');
+      const mobileInput=document.getElementById('mobileInput');
+      const chat_users=document.getElementById('chat_users');
+      let prevlength=0;
+
+      const show=()=>{
+        Form.style.display= Form.style.display==='flex'?'none':'flex';
+      }
+
+      adduserform.addEventListener('submit',(event)=>{
+        event.preventDefault();
+        const name=nameInput.value.trim();
+        const mobile=mobileInput.value.trim();
+
+        if(name && mobile){
+          const encName=encodeURIComponent(name);
+          const encMobile=encodeURIComponent(mobile);
+          const link=`/inbox/addUser/${encName}/${encMobile}`;
+          window.location.href=link;
+        }else{
+          alert('Please fill in both fields.');
+        }
+      });
+
+      const func2=()=>{
+        // chat_users.style.display=chat_users.style.display==='block'?
+        // 'none':'block';
+      //  const newlength=users.length;
+
+      //  if(newlength!=prevlength){
+        const link=`/inbox/allusers`;
+        window.location.href=link;
+      //  }
+        prevlength=newlength;
+      };
+    
+    </script>
+
   </body>
 </html>

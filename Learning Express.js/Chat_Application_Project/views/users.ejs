@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Manage Users</title>
+    <title><%= title %></title>
     <link rel="stylesheet" href="/css/users.css" />
     <link
       rel="stylesheet"
@@ -43,9 +43,9 @@
             <% } else { %>
             <img src="/uploads/avatars/no_person.jpg" alt="person_image" />
             <% } %>
-            <p><%= user.name %></p>
+            <p style="margin-bottom: 5px;"><%= user.name %></p>
           </div>
-          <p><%= user.email %></p>
+          <p ><%= user.email %></p>
           <div style="margin-right: 30px; margin-top: 4px">
             <img
               src="/images/Garbage-Closed-256.png"

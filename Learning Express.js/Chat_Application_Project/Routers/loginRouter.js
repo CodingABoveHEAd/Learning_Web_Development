@@ -12,7 +12,7 @@ const page_title = "Login";
 
 const router = express.Router();
 
-router.get("/", decorateResponse(page_title), getLogin);
+router.get("/", decorateResponse(page_title), redirectLoggedIn, getLogin);
 
 router.post(
   "/",

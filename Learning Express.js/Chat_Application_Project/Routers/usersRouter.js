@@ -5,7 +5,7 @@ const {
   removeUser,
 } = require("../controllers/usersController");
 const { decorateResponse } = require("../middlewares/common/decorateResponse");
-const {checkLogin} = require("../middlewares/common/checkLogin");
+const {checkLogin,redirectLoggedIn} = require("../middlewares/common/checkLogin");
 const avatarUpload = require("../middlewares/users/avatarUpload");
 const {
   userValidators,
@@ -14,7 +14,7 @@ const {
 
 const router = express.Router();
 
-router.get("/", decorateResponse("Users"), checkLogin, getUsers);
+router.get("/", decorateResponse("Users"), checkLogin,getUsers);
 
 router.post(
   "/",

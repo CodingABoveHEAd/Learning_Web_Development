@@ -5,13 +5,14 @@ const checkLogin = (req, res, next) => {
     req.signedCookies && Object.keys(req.signedCookies).length > 0
       ? req.signedCookies
       : null;
-      console.log(cookies);
+      // console.log(cookies);
   if (cookies) {
-    console.log('if cookie');
+   // console.log('if cookie');
     try {
       const token = cookies[process.env.COOKIE_NAME];
       const decoded = jwt.verify(token, process.env.SECRET_KEY);
-      console.log('hi'+token);
+      // console.log(decoded);
+      //console.log('hi'+token);
       req.user = decoded;
 
       if (res.locals.html) {
@@ -33,7 +34,7 @@ const checkLogin = (req, res, next) => {
       }
     }
   } else {
-    console.log('else2 cookie');
+    //console.log('else2 cookie');
     if (res.locals.html) {
       res.redirect("/login");
     } else {

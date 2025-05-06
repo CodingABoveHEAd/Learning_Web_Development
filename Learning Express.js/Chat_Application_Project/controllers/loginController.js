@@ -35,7 +35,9 @@ const login = async (req, res, next) => {
           signed: true,
         });
         res.locals.loggedInUser = userObject;
-        res.render("inbox");
+        res.render("inbox",{
+          users:[],
+        });
       } else {
         throw createError("Wrong/invalid password!");
       }
@@ -44,10 +46,10 @@ const login = async (req, res, next) => {
     }
   } catch (error) {
     res.render("index", {
+      data: {
+        username: req.body.username,
+      },
       errors: {
-        data: {
-          username: req.body.username,
-        },
         common: {
           msg: error.message,
         },

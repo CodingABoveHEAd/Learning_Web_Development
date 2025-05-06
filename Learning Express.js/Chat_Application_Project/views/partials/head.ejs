@@ -1,6 +1,8 @@
 <% if(loggedInUser && loggedInUser.username){ %>
 <div class="headings">
-  <div class="contents" onclick="logout()"><a href="/login">Logout</a></div>
+  <div style="cursor: pointer" class="contents" onclick="logout()">
+    <a>Logout</a>
+  </div>
   <div class="contents"><a href="/inbox">Inbox</a></div>
   <div class="contents" style="border: 0px">
     <a href="/users">Users</a>
@@ -20,23 +22,36 @@
 <script>
   logout = async () => {
     try {
-       await fetch("/login", {
+      await fetch("/login", {
         method: "DELETE",
       });
       Toastify({
-        text: "You are being logged-out",
-        duration: 2000,
+        text: "log-out processing",
+        duration: 1000,
         gravity: "top",
         position: "right",
         style: {
-          background: "linear-gradient(to right, #ff5f6d, #ffc371)",
+          background: "linear-gradient(90deg, #6a11cb 0%, #2575fc 100%)",
         },
       }).showToast();
-      console.log("hi");
-      setTimeout(() => {
-        console.log("logged out");
+
+     setTimeout(() => {
         window.location.replace("/login");
+      }, 3000);
+      
+      setTimeout(() => {
+        Toastify({
+          text: "log-out successfully",
+          duration: 1000,
+          gravity: "top",
+          position: "right",
+          style: {
+            background: "linear-gradient(90deg, #6a11cb 0%, #2575fc 100%)",
+          },
+        }).showToast();
       }, 2000);
+
+ 
     } catch (error) {
       console.log(error);
     }
