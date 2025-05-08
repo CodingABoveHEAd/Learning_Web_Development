@@ -127,6 +127,10 @@ body {
   /* cursor: pointer; */
 }
 
+.user:hover{
+  background-color: rgb(31, 40, 43);
+}
+
 .user img {
   height: 40px;
   width: 40px;
@@ -149,7 +153,7 @@ body {
 }
 
 .right .chat_head {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   z-index: 1;
@@ -172,7 +176,7 @@ body {
 }
 
 .right .msg_form {
-  display: flex;
+  display: none;
   height: 70px;
   width: 100%;
   background-color: rgb(29, 27, 27);
@@ -338,4 +342,12 @@ body {
   margin-top: 200px;
   font-size: 30px;
 
+}
+
+#temp{
+  color: rgba(114, 106, 106, 0.397);
+  margin: auto;
+  margin-top: 350px;
+  font-size: 40px;
+  
 }

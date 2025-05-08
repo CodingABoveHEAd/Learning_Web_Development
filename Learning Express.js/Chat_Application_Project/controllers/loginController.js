@@ -40,6 +40,8 @@ const login = async (req, res, next) => {
         const users = await chatPeople.find({ From: user.name });
         res.render("inbox", {
           users,
+          allMessages: [],
+        
         });
 
       } else {

@@ -5,6 +5,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const http = require("http");
 const { Server } = require("socket.io");
+const Chat = require("./model/chat");
 
 const {
   notFoundHandler,
@@ -14,6 +15,7 @@ const loginRouter = require("./Routers/loginRouter");
 const inboxRouter = require("./Routers/inboxRouter");
 const usersRouter = require("./Routers/usersRouter");
 const { decorateResponse } = require("./middlewares/common/decorateResponse");
+const { create } = require("lodash");
 
 dotenv.config();
 const app = express();
@@ -49,27 +51,37 @@ const users = {};
 io.on("connection", (socket) => {
   socket.on("register", (mobile) => {
     users[mobile] = socket.id;
+    socket.mobile = mobile;
+    console.log("Registered:", mobile);
   });
 
-  socket.on("one_message", ({ msg, selectedReceiver }) => {
-    const { mobile } = selectedReceiver;
-    const recId = users[mobile];
-    const senderId = socket.id;
-
+  socket.on("one_message", async ({ msg, selectedReceiver }) => {
+    const receiverMobile = selectedReceiver?.mobile;
+    const senderMobile = socket.mobile;
+  
     const payload = {
-      msg: msg,
-      serverId: senderId,
+      msg,
+      senderMobile,
     };
-
-    // Send to receiver
+  
+    const recId = users[receiverMobile];
     if (recId) {
       io.to(recId).emit("other_message", payload);
     }
-
-    // Also send to sender (self) so their own message shows up
+  
     socket.emit("other_message", payload);
+  
+    try {
+      await Chat.create({
+        sender: senderMobile,
+        receiver: receiverMobile,
+        message: msg,
+      });
+    } catch (err) {
+      console.error("Chat saving error:", err.message);
+    }
   });
-
+  
   socket.on("disconnect", () => {
     for (const mobile in users) {
       if (users[mobile] === socket.id) {
@@ -79,7 +91,6 @@ io.on("connection", (socket) => {
     }
   });
 });
-
 
 app.use(notFoundHandler);
 app.use(errorHandler);

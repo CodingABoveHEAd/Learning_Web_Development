@@ -10,10 +10,12 @@ async function getInbox(req, res, next) {
 
     res.render("inbox", {
       users,
+      allMessages: [],
     });
   } catch (err) {
     res.render("inbox", {
       users: [],
+      allMessages: [],
       errors: {
         common: {
           msg: "Something went wrong!",

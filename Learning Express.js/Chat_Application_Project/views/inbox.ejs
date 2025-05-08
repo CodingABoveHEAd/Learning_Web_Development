@@ -68,11 +68,10 @@
         </div>
 
         <div class="messages">
-          
-          <!-- <p>hi</p>
-          <p>hi</p> -->
-
+          <p id="temp">Select a conversation</p>
+          <!-- Messages will be dynamically loaded here -->
         </div>
+        
 
         <div class="msg_form">
           <input type="text" id="user_message" placeholder="enter your message here"></input>
@@ -91,6 +90,10 @@
       const mobileInput=document.getElementById('mobileInput');
       const chat_users=document.getElementById('chat_users');
       const userName=document.getElementById('userName');
+      const messages=document.getElementsByClassName('messages')[0];
+      const chat_head=document.getElementsByClassName('chat_head')[0];
+      const msg_form=document.getElementsByClassName('msg_form')[0];
+      const temp=document.getElementById('temp');
       let prevlength=0;
 
       const show=()=>{
@@ -136,12 +139,35 @@
 };
 
 let selectedReceiver = null;
+const ownMobile="<%= loggedInUser.mobile %>";
 
-function selectReceiver(mobile, name) {
+async function selectReceiver(mobile, name) {
   selectedReceiver = { mobile, name };
-  userName.textContent=name;
-  // console.log("Selected receiver:", selectedReceiver);
+  userName.textContent = name;
+
+  const own = encodeURIComponent(ownMobile);
+  const other = encodeURIComponent(mobile);
+  const link = `/inbox/chats?sender=${own}&receiver=${other}`;
+  chat_head.style.display='flex';
+  msg_form.style.display='flex';
+  temp.style.display='none';
+
+  try {
+    const res = await fetch(link, {
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+      }
+    });
+
+    if (!res.ok) throw new Error("Failed to fetch messages");
+
+    const html = await res.text();
+    document.querySelector('.messages').innerHTML = html;
+  } catch (err) {
+    console.error("Error loading chat messages:", err);
+  }
 }
+
 
 
 
@@ -171,15 +197,14 @@ send_btn.addEventListener("click", () => {
 });
 
 
-const ownMobile="<%= loggedInUser.mobile %>";
+// const ownMobile="<%= loggedInUser.mobile %>";
 socket.emit("register", ownMobile);
 
-socket.on('other_message', ({ msg, serverId }) => {
-  const frontId = socket.id;
+socket.on('other_message', ({ msg, senderMobile }) => {
   const msgElement = document.createElement('p');
   msgElement.classList.add('message');
 
-  if (serverId === frontId) {
+  if (senderMobile === ownMobile) {
     msgElement.classList.add('own-message');
   } else {
     msgElement.classList.add('other-message');
@@ -190,11 +215,12 @@ socket.on('other_message', ({ msg, serverId }) => {
 });
 
 
+
 user_message.addEventListener("keyup", (event) => {
         if (event.key === "Enter") {
           send_btn.click();
         }
-      });
+});
 
 
     
