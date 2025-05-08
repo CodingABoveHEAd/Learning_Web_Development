@@ -44,6 +44,10 @@ body {
   border: 1px solid black;
   height: 100%;
   background-color: rgb(29, 27, 27);
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
 }
 
 .error {
@@ -96,6 +100,9 @@ body {
 
 #chat_users {
   /* display: none; */
+  /* display: flex;
+  justify-content: center; */
+  /* align-items: center; */
   margin-top: 7px;
   height:724px;
   width: 100%;
@@ -174,7 +181,7 @@ body {
 }
 
 .msg_form input {
-  margin-top: 16px;
+  margin-top:13.5px;
   margin-right: 10px;
   margin-left: 5px;
   height: 40px;
@@ -198,17 +205,54 @@ body {
 }
 
 .right .messages {
+  display: flex;
+  flex-direction: column;
   height: 700px;
   width: 100%;
   overflow: auto;
   background-color: rgba(129, 104, 104, 0);
   color: white;
   font-size: 20px;
+  border-top: 1px solid #444;
+  /* padding: 10px; gpt*/
 }
 
 .messages::-webkit-scrollbar {
   display: none;
 }
+
+.message {
+  padding: 8px 12px;
+  margin: 4px 0;
+  max-width: 70%;
+  border-radius: 12px;
+  font-family: sans-serif;
+}
+
+.own-message {
+  background-color: #1f6f8b;      
+  color: #ffffff;
+  text-align: right;
+  align-self: flex-end;
+  margin-left: auto;
+  padding: 8px 12px;
+  border-radius: 12px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.other-message {
+  background-color: #99a8b2; 
+  color: #000000;
+  text-align: left;
+  align-self: flex-start;
+  margin-right: auto;
+  padding: 8px 12px;
+  border-radius: 12px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
 
 #Form {
   display: none;
@@ -285,4 +329,13 @@ body {
   padding: 11px;
   /* font-size: 18px; */
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.674);
+}
+
+#no_user{
+  color: rgba(141, 137, 137, 0.705);
+  /* background-color: #96c93d; */
+  /* margin: auto; */
+  margin-top: 200px;
+  font-size: 30px;
+
 }

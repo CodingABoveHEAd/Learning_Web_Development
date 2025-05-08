@@ -11,6 +11,7 @@
       href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
     />
   </head>
+
   <body>
     <%- include('./partials/head.ejs') %>
     <div id="Form">
@@ -39,22 +40,28 @@
         <div id="chat_users">
           <% if (users && users.length > 0) { %>
             <% users.forEach(user => { %>
-          <a href="" class="user">
-            <img src="/uploads/avatars/no_person.jpg" alt="chat users" />
-            <p style="margin-top: 8px"><%= user.Toname %></p>
-          </a>
+              <!-- here -->
+              <div style="cursor: pointer;" class="user" onclick='selectReceiver("<%= user.Tomobile %>", "<%= user.Toname %>")'>
+                <% if (user.Toavatar) { %>
+                  <img src="/uploads/avatars/<%= user.Toavatar %>" alt="chat users" />
+                <% } else { %>
+                  <img src="/uploads/avatars/no_person.jpg" alt="chat users" />
+                <% } %>
+                <p style="margin-top: 8px"><%= user.Toname %></p>
+              </div>
+              
           <% }) %>
           <% } else { %>
-            <p>No chat users found.</p>
+            <p id="no_user">No chat users found.Add users</p>
           <% } %>
           
-          <title>Inbox</title>
+          <!-- <title>Inbox</title> -->
         </div>
       </div>
       <div class="right">
 
         <div class="chat_head">
-          <p><b>UserName</b></p>
+          <p><b id="userName">NoUser</b></p>
           <a title="remove chat" href="###"
             ><img src="/images/Garbage-Closed-256.png" alt="remove_chat"
           /></a>
@@ -62,19 +69,20 @@
 
         <div class="messages">
           
-          <p>hi</p>
-          <p>hi</p>
+          <!-- <p>hi</p>
+          <p>hi</p> -->
 
         </div>
 
         <div class="msg_form">
-          <input type="text" ></input>
-          <img title="send message" src="/images/send.png" alt="">
+          <input type="text" id="user_message" placeholder="enter your message here"></input>
+          <img id="send_btn" title="send message" src="/images/send.png" alt="send img">
         </div>
 
       </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script>
       const Form=document.getElementById('Form');
       const addimg=document.getElementById('addimg');
@@ -82,6 +90,7 @@
       const nameInput=document.getElementById('nameInput');
       const mobileInput=document.getElementById('mobileInput');
       const chat_users=document.getElementById('chat_users');
+      const userName=document.getElementById('userName');
       let prevlength=0;
 
       const show=()=>{
@@ -97,25 +106,98 @@
           const encName=encodeURIComponent(name);
           const encMobile=encodeURIComponent(mobile);
           const link=`/inbox/addUser/${encName}/${encMobile}`;
-          window.location.href=link;
+          // window.location.href=link;
+
+          Toastify({
+            text: "User Added successfully.Click on Alluser to see the updated list",
+            duration: 2000,
+            gravity: "top",
+            position: "right",
+            style: {
+              background: "linear-gradient(to right, #dc2f02, #e85d04,#f48c06)",
+            },
+          }).showToast();
+
+          setTimeout(() => {
+      window.location.href = link;
+    }, 1000);
+
         }else{
           alert('Please fill in both fields.');
         }
       });
 
       const func2=()=>{
-        // chat_users.style.display=chat_users.style.display==='block'?
-        // 'none':'block';
-      //  const newlength=users.length;
-
-      //  if(newlength!=prevlength){
+        chat_users.style.display=chat_users.style.display==='block'?
+        'none':'block';
+        // console.log('hi');
         const link=`/inbox/allusers`;
         window.location.href=link;
-      //  }
-        prevlength=newlength;
-      };
+};
+
+let selectedReceiver = null;
+
+function selectReceiver(mobile, name) {
+  selectedReceiver = { mobile, name };
+  userName.textContent=name;
+  // console.log("Selected receiver:", selectedReceiver);
+}
+
+
+
+
+const user_message=document.getElementById('user_message');
+const send_btn=document.getElementById('send_btn');
+const messagesContainer = document.querySelector(".messages");
+
+const socket=io();
+
+
+// socket.emit("register", currentUserMobile); // send your own number
+
+send_btn.addEventListener("click", () => {
+  const msg = user_message.value.trim();
+  // console.log(msg);
+  //  console.log(msg);
+  //  console.log(selectedReceiver);
+   
+  if (msg !== "" && selectedReceiver) {
+    socket.emit("one_message", {
+      msg: msg,
+      selectedReceiver: selectedReceiver,
+    });
+    user_message.value = "";
+  }
+});
+
+
+const ownMobile="<%= loggedInUser.mobile %>";
+socket.emit("register", ownMobile);
+
+socket.on('other_message', ({ msg, serverId }) => {
+  const frontId = socket.id;
+  const msgElement = document.createElement('p');
+  msgElement.classList.add('message');
+
+  if (serverId === frontId) {
+    msgElement.classList.add('own-message');
+  } else {
+    msgElement.classList.add('other-message');
+  }
+
+  msgElement.textContent = msg;
+  messagesContainer.appendChild(msgElement);
+});
+
+
+user_message.addEventListener("keyup", (event) => {
+        if (event.key === "Enter") {
+          send_btn.click();
+        }
+      });
+
+
     
     </script>
-
   </body>
 </html>

@@ -5,7 +5,7 @@ const { checkLogin } = require("../middlewares/common/checkLogin");
 const router = express.Router();
 const User = require("../model/people");
 const chatPeople = require("../model/chatPeople");
-const { route } = require("./loginRouter");
+
 
 router.get("/", decorateResponse("inbox"), checkLogin, getInbox);
 
@@ -90,15 +90,18 @@ router.get(
   checkLogin,
   async (req, res) => {
     try {
-      const users = await chatPeople.find();
+      const loggedInUser = res.locals.loggedInUser;
+      const users = await chatPeople.find({From : loggedInUser.username });
       //   console.log(users);
       res.render("inbox", { users });
-      windows.location.reload();
+    //   windows.location.reload();
     //   console.log(users);
     } catch (error) {
       console.log(error);
     }
   }
 );
+
+
 
 module.exports = router;

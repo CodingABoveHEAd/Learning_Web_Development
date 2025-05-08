@@ -1,5 +1,6 @@
 // const { compare } = require("bcrypt");
 const User = require("../model/people");
+const chatPeople=require('../model/chatPeople');
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const createError = require("http-errors");
@@ -35,9 +36,12 @@ const login = async (req, res, next) => {
           signed: true,
         });
         res.locals.loggedInUser = userObject;
-        res.render("inbox",{
-          users:[],
+
+        const users = await chatPeople.find({ From: user.name });
+        res.render("inbox", {
+          users,
         });
+
       } else {
         throw createError("Wrong/invalid password!");
       }
