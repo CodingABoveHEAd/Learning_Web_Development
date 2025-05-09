@@ -55,32 +55,37 @@ io.on("connection", (socket) => {
     console.log("Registered:", mobile);
   });
 
-  socket.on("one_message", async ({ msg, selectedReceiver }) => {
-    const receiverMobile = selectedReceiver?.mobile;
-    const senderMobile = socket.mobile;
-  
-    const payload = {
-      msg,
-      senderMobile,
-    };
-  
-    const recId = users[receiverMobile];
-    if (recId) {
-      io.to(recId).emit("other_message", payload);
-    }
-  
-    socket.emit("other_message", payload);
-  
-    try {
-      await Chat.create({
-        sender: senderMobile,
-        receiver: receiverMobile,
-        message: msg,
-      });
-    } catch (err) {
-      console.error("Chat saving error:", err.message);
-    }
-  });
+socket.on("one_message", async ({ msg, selectedReceiver }) => {
+  const receiverMobile = selectedReceiver?.mobile;
+  const senderMobile = socket.mobile;
+
+  const payload = {
+    msg,
+    senderMobile,
+    receiverMobile
+  };
+
+  const recId = users[receiverMobile];
+  if (recId) {
+    // ✅ Send only to receiver
+    io.to(recId).emit("other_message", payload);
+  }
+
+  // ✅ Send only to sender (your own socket)
+  socket.emit("own_message", payload);
+
+  // Save to DB
+  try {
+    await Chat.create({
+      sender: senderMobile,
+      receiver: receiverMobile,
+      message: msg,
+    });
+  } catch (err) {
+    console.error("Chat saving error:", err.message);
+  }
+});
+
   
   socket.on("disconnect", () => {
     for (const mobile in users) {
@@ -95,6 +100,6 @@ io.on("connection", (socket) => {
 app.use(notFoundHandler);
 app.use(errorHandler);
 // Start server
-server.listen(process.env.PORT, () => {
+server.listen(process.env.PORT,'0.0.0.0', () => {
   console.log(`App listening on port ${process.env.PORT}`);
 });

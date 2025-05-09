@@ -6,8 +6,8 @@ const path = require("path");
 
 const userValidators = [
   check("name")
-    .isLength({ min: 1 })
-    .withMessage("Name is required")
+    .isLength({ min: 1,max:8 })
+    .withMessage("Name must contain 1-8 charecters")
     .isAlpha("en-US", { ignore: " -" })
     .withMessage("Name must not contain anything other than alphabet")
     .trim(),

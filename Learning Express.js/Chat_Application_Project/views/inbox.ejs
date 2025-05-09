@@ -41,7 +41,7 @@
           <% if (users && users.length > 0) { %>
             <% users.forEach(user => { %>
               <!-- here -->
-              <div style="cursor: pointer;" class="user" onclick='selectReceiver("<%= user.Tomobile %>", "<%= user.Toname %>")'>
+              <div style="cursor: pointer;" class="user" onclick='selectReceiver("<%= user.Tomobile %>", "<%= user.Toname %>","<%= user.Toavatar %>")'>
                 <% if (user.Toavatar) { %>
                   <img src="/uploads/avatars/<%= user.Toavatar %>" alt="chat users" />
                 <% } else { %>
@@ -61,7 +61,11 @@
       <div class="right">
 
         <div class="chat_head">
-          <p><b id="userName">NoUser</b></p>
+          
+          <div>
+            <img id="title_img"  alt="user_image">
+            <b id="userName">NoUser</b>
+          </div>
           <a title="remove chat" href="###"
             ><img src="/images/Garbage-Closed-256.png" alt="remove_chat"
           /></a>
@@ -69,6 +73,7 @@
 
         <div class="messages">
           <p id="temp">Select a conversation</p>
+          <!-- <p id="temp">Select a conversation</p> -->
           <!-- Messages will be dynamically loaded here -->
         </div>
         
@@ -94,6 +99,8 @@
       const chat_head=document.getElementsByClassName('chat_head')[0];
       const msg_form=document.getElementsByClassName('msg_form')[0];
       const temp=document.getElementById('temp');
+      const user=document.getElementsByClassName('user');
+      const title_img=document.getElementById('title_img');
       let prevlength=0;
 
       const show=()=>{
@@ -141,18 +148,27 @@
 let selectedReceiver = null;
 const ownMobile="<%= loggedInUser.mobile %>";
 
-async function selectReceiver(mobile, name) {
+async function selectReceiver(mobile, name, avatar) {
   selectedReceiver = { mobile, name };
   userName.textContent = name;
+  if(avatar){
+    title_img.src=`/uploads/avatars/${avatar}`;
+  }else{
+    title_img.src="/uploads/avatars/no_person.jpg";
+  }
+  
 
   const own = encodeURIComponent(ownMobile);
   const other = encodeURIComponent(mobile);
   const link = `/inbox/chats?sender=${own}&receiver=${other}`;
   chat_head.style.display='flex';
   msg_form.style.display='flex';
-  temp.style.display='none';
 
+
+
+  // document.querySelector('.messages').innerHTML='<p id="temp">Select a conversation</p>';
   try {
+
     const res = await fetch(link, {
       headers: {
         'X-Requested-With': 'XMLHttpRequest',
@@ -166,9 +182,8 @@ async function selectReceiver(mobile, name) {
   } catch (err) {
     console.error("Error loading chat messages:", err);
   }
+  temp.style.display='none';
 }
-
-
 
 
 
@@ -200,19 +215,27 @@ send_btn.addEventListener("click", () => {
 // const ownMobile="<%= loggedInUser.mobile %>";
 socket.emit("register", ownMobile);
 
-socket.on('other_message', ({ msg, senderMobile }) => {
+// For message sent by **others** (receiver)
+// Show message sent BY YOU
+socket.on('own_message', ({ msg, receiverMobile }) => {
+  if (selectedReceiver?.mobile !== receiverMobile) return; // filter
+
   const msgElement = document.createElement('p');
-  msgElement.classList.add('message');
-
-  if (senderMobile === ownMobile) {
-    msgElement.classList.add('own-message');
-  } else {
-    msgElement.classList.add('other-message');
-  }
-
+  msgElement.classList.add('message', 'own-message');
   msgElement.textContent = msg;
   messagesContainer.appendChild(msgElement);
 });
+
+// Show message sent TO YOU
+socket.on('other_message', ({ msg, senderMobile }) => {
+  if (selectedReceiver?.mobile !== senderMobile) return; // filter
+
+  const msgElement = document.createElement('p');
+  msgElement.classList.add('message', 'other-message');
+  msgElement.textContent = msg;
+  messagesContainer.appendChild(msgElement);
+});
+
 
 
 

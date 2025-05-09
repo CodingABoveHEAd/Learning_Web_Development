@@ -44,10 +44,6 @@ body {
   border: 1px solid black;
   height: 100%;
   background-color: rgb(29, 27, 27);
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; */
 }
 
 .error {
@@ -103,11 +99,12 @@ body {
   /* display: flex;
   justify-content: center; */
   /* align-items: center; */
-  margin-top: 7px;
+  /* margin-top: 7px; */
   height:724px;
   width: 100%;
   /* border: 1px solid blue; */
   overflow-y: scroll;
+  /* border: 1px solid red; */
 }
 
 #chat_users::-webkit-scrollbar {
@@ -167,13 +164,20 @@ body {
 .right .chat_head img {
   height: 27px;
   width: 27px;
-  margin-right: 15px;
+  margin-right: 10px;
+  margin-top: 10px;
+  /* border: 2px solid rgb(13, 184, 13); */
 }
 
-.right .chat_head p {
-  font-size: 20px;
-  margin-left: 10px;
+.right .chat_head #title_img {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+  margin-top: 6px;
+  margin-right: 5px;
+  border: 2px solid rgb(13, 184, 13);
 }
+
 
 .right .msg_form {
   display: none;
@@ -203,10 +207,25 @@ body {
   width: 40px;
   margin-right: 7px;
   margin-top: 15px;
-  /* background-color: #0077b6; */
   margin-bottom: 10px;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  filter: drop-shadow(0 0 4px rgba(0, 119, 182, 0.3));
+  border-radius: 50%;
 }
+
+/* Hover effect: scale up slightly and glow */
+.msg_form img:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 10px #00b4d8);
+}
+
+/* Active (click) effect: quick rotate and shrink */
+.msg_form img:active {
+  transform: scale(0.95) rotate(-15deg);
+  filter: drop-shadow(0 0 12px #0077b6);
+}
+
 
 .right .messages {
   display: flex;
@@ -344,10 +363,30 @@ body {
 
 }
 
-#temp{
+#temp {
+ 
   color: rgba(114, 106, 106, 0.397);
   margin: auto;
   margin-top: 350px;
   font-size: 40px;
-  
+  transition: all 0.2s ease-in-out;
+}
+
+
+#title_img{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+
+}
+
+#userName{
+  position: absolute;
+  /* background-color: red;  */
+  font-size:23px ;
+  top: 16px;
+  margin-left: 3px;
+  /* margin-top: 0px;
+  margin-bottom: 0px; */
+   /* color: #000000; */
 }

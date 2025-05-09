@@ -137,7 +137,7 @@ router.get(
                 return `<p class="message other-message">${Msg.message}</p>`;
               }
             })
-            .join("") || "<p>Select a Conversation</p>";
+            .join("");
 
         return res.send(html);
       }
