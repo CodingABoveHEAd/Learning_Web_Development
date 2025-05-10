@@ -185,22 +185,14 @@ async function selectReceiver(mobile, name, avatar) {
   temp.style.display='none';
 }
 
-
-
 const user_message=document.getElementById('user_message');
 const send_btn=document.getElementById('send_btn');
 const messagesContainer = document.querySelector(".messages");
 
 const socket=io();
 
-
-// socket.emit("register", currentUserMobile); // send your own number
-
 send_btn.addEventListener("click", () => {
   const msg = user_message.value.trim();
-  // console.log(msg);
-  //  console.log(msg);
-  //  console.log(selectedReceiver);
    
   if (msg !== "" && selectedReceiver) {
     socket.emit("one_message", {
@@ -212,13 +204,12 @@ send_btn.addEventListener("click", () => {
 });
 
 
-// const ownMobile="<%= loggedInUser.mobile %>";
+
 socket.emit("register", ownMobile);
 
-// For message sent by **others** (receiver)
-// Show message sent BY YOU
+
 socket.on('own_message', ({ msg, receiverMobile }) => {
-  if (selectedReceiver?.mobile !== receiverMobile) return; // filter
+  if (selectedReceiver?.mobile !== receiverMobile) return; 
 
   const msgElement = document.createElement('p');
   msgElement.classList.add('message', 'own-message');
@@ -226,17 +217,14 @@ socket.on('own_message', ({ msg, receiverMobile }) => {
   messagesContainer.appendChild(msgElement);
 });
 
-// Show message sent TO YOU
 socket.on('other_message', ({ msg, senderMobile }) => {
-  if (selectedReceiver?.mobile !== senderMobile) return; // filter
+  if (selectedReceiver?.mobile !== senderMobile) return; 
 
   const msgElement = document.createElement('p');
   msgElement.classList.add('message', 'other-message');
   msgElement.textContent = msg;
   messagesContainer.appendChild(msgElement);
 });
-
-
 
 
 user_message.addEventListener("keyup", (event) => {

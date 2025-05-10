@@ -6,6 +6,11 @@
 }
 
 body {
+   /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  /* height: 100vh; */
   background: linear-gradient(100deg, #5473ff, #0077b6, #029ebd);
 }
 
@@ -14,7 +19,7 @@ body {
   height: 40px;
   /* background-color: aqua; */
   justify-content: center;
-  margin-top: 17px;
+  margin-top: 20px;
 }
 
 .contents {
@@ -60,6 +65,7 @@ body {
   border: 1px solid black;
   margin: auto;
   margin-top: 30px;
+  margin-bottom: 30px;
   border-radius: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.508);
   transition: box-shadow 0.3s ease-in-out;
@@ -101,6 +107,7 @@ body {
   /* align-items: center; */
   /* margin-top: 7px; */
   height:724px;
+ 
   width: 100%;
   /* border: 1px solid blue; */
   overflow-y: scroll;
@@ -125,7 +132,7 @@ body {
 }
 
 .user:hover{
-  background-color: rgb(31, 40, 43);
+  background-color: rgb(43, 55, 59);
 }
 
 .user img {
@@ -302,6 +309,7 @@ body {
   flex-direction: column;
   gap: 15px;
   border-radius:10px ;
+  z-index: 3;
 }
 
 #addUserForm input {
@@ -389,4 +397,58 @@ body {
   /* margin-top: 0px;
   margin-bottom: 0px; */
    /* color: #000000; */
+}
+
+@media screen and (max-width: 600px) {
+  .login {
+    height: 550px;
+    margin: 70px 0px;
+    margin-top: 20px;
+    width: 99.5%;
+  }
+  .headings {
+    margin-top: 50px;
+  }
+
+  .right{
+    width: 65%;
+  }
+  .left{
+    width: 35%;
+  }
+ #temp{
+  font-size: 30px;
+  margin-top: 250px;
+ } 
+ .msg_form img{
+  height: 30px;
+  width: 30px;
+  margin-top: 18px;
+ }
+ .msg_form input{
+  font-size: 13px;
+  /* margin-left: 2px; */
+  padding-left: 6px;
+  margin-bottom: 10px;
+ }
+ #userName{
+  top: 13.7px;
+  font-size: 18px;
+ }
+ #chat_users{
+  height: 483px;
+ }
+ #addUserForm{
+  margin-top: -100px;
+  margin-left: 10px;
+  margin-right: 10px;
+ }
+  
+}
+
+@media screen and (max-width: 600px){
+   #temp{
+  font-size: 20px;
+  margin-top: 250px;
+ } 
 }

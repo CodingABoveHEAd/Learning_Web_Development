@@ -6,8 +6,12 @@
 }
 
 body {
-  
-  background: linear-gradient(100deg,#5473ff, #0077b6,#029ebd );
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(100deg, #5473ff, #0077b6, #029ebd);
 }
 
 .headings {
@@ -15,7 +19,7 @@ body {
   height: 40px;
   /* background-color: aqua; */
   justify-content: center;
-  margin-top: 17px;
+  margin-top: 20px;
 }
 
 .contents {
@@ -31,7 +35,7 @@ body {
   text-decoration: none;
   color: rgb(255, 255, 255);
   display: inline-block;
-  transition: transform .5s;
+  transition: transform 0.5s;
   font-weight: 1500px;
 }
 
@@ -45,7 +49,9 @@ body {
   width: 90%;
   max-width: 1200px;
   border: 1px solid black;
-  margin: auto;
+  /* margin: auto; */
+
+  margin-bottom: 30px;
   margin-top: 30px;
   border-radius: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.508);
@@ -97,7 +103,7 @@ form {
 
 input {
   display: block;
-  margin: 20px auto 0 auto; 
+  margin: 20px auto 0 auto;
   width: 90%;
   height: 45px;
   border-radius: 5px;
@@ -117,7 +123,7 @@ button {
   cursor: pointer;
 }
 
-.left img{
+.left img {
   display: block;
   margin: auto;
   margin-top: 120px;
@@ -126,8 +132,46 @@ button {
   height: 50%;
 }
 
-.error{
+.error {
   color: red;
   font-size: 17px;
   margin-left: 28px;
+}
+
+#img_text {
+  font-size: 20px;
+  margin-top: 10px;
+  color: white;
+}
+
+@media screen and (max-width: 500px) {
+  .login {
+    height: 550px;
+    margin-bottom: 70px 0px;
+    width: 98%;
+  }
+  .heading {
+    margin-top: 50px;
+  }
+  .left{
+    width: 45%;
+  }
+  .left img {
+    height: 160px;
+    width: 160px;
+    margin: auto;
+    /* margin-left: 0px; */
+    /* margin-right: 40px; */
+    margin-top: 185px;
+  }
+  #img_text{
+    font-size: 15px;
+  }
+  input{
+    font-size: 16px;
+  }
+
+ button{
+  width: 120px;
+ }
 }
