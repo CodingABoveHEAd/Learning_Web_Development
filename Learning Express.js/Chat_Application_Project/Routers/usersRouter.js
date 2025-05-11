@@ -5,7 +5,11 @@ const {
   removeUser,
 } = require("../controllers/usersController");
 const { decorateResponse } = require("../middlewares/common/decorateResponse");
-const {checkLogin,redirectLoggedIn} = require("../middlewares/common/checkLogin");
+const {
+  checkLogin,
+  redirectLoggedIn,
+  requireRole,
+} = require("../middlewares/common/checkLogin");
 const avatarUpload = require("../middlewares/users/avatarUpload");
 const {
   userValidators,
@@ -14,11 +18,18 @@ const {
 
 const router = express.Router();
 
-router.get("/", decorateResponse("Users"), checkLogin,getUsers);
+router.get(
+  "/",
+  decorateResponse("Users"),
+  checkLogin,
+  requireRole(["admin"]),
+  getUsers
+);
 
 router.post(
   "/",
   checkLogin,
+  requireRole(["admin"]),
   avatarUpload,
   userValidators,
   addUserValidationHandler,

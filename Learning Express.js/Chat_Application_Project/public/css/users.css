@@ -6,7 +6,12 @@
 }
 
 body {
-  background: linear-gradient(100deg, #5473ff, #0077b6, #029ebd);
+  background-image: url("../images/wp12240222-windows-abstract-wallpapers - Copy.png");
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-attachment: fixed;
+
 }
 
 .headings {
@@ -14,7 +19,7 @@ body {
   height: 40px;
   /* background-color: aqua; */
   justify-content: center;
-  margin-top: 17px;
+  margin-top: 20px;
 }
 
 .contents {
@@ -39,16 +44,19 @@ body {
 }
 
 .users {
-  height: 800px;
+  min-height: 200px;
   width: 90%;
   max-width: 1200px;
-  border: 1px solid black;
+  /* border: 1px solid red; */
   margin: auto;
+  margin-bottom: 60px;
   margin-top: 30px;
   border-radius: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.508);
   transition: box-shadow 0.3s ease-in-out;
   background-color: rgb(39, 36, 36);
+
+  /* border: 1px solid red; */
 }
 
 .users:hover {
@@ -81,8 +89,8 @@ body {
 }
 
 .user {
-  height: 600px;
-  width: 90%;
+  max-height: 600px;
+  width: 98%;
   /* border: 1px solid red; */
   margin: auto;
   margin-top: 20px;
@@ -110,9 +118,11 @@ body {
 }
 
 .person {
+  border: 1px solid red;
   display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   color: white;
-  height: auto;
   width: 100%;
   justify-content: space-between;
   align-items: center;
@@ -123,6 +133,7 @@ body {
   cursor: pointer;
   /* background-color: aqua; */
 }
+
 
 .person div {
   height: 20px;
@@ -137,10 +148,11 @@ body {
 .avatar {
   display: flex;
   align-items: center;
+  /* border: 1px solid red; */
 }
 
 .avatar img {
-  margin-left: 10px;
+  /* margin-left: 10px; */
   margin-right: 7px;
   margin-bottom: 4px;
   /* margin-top: 2px; */
@@ -148,7 +160,6 @@ body {
   height: 35px;
   width: 35px;
   border: 2px solid rgb(27, 252, 27);
-
 }
 
 /* .form{
@@ -169,14 +180,13 @@ body {
   top: 0;
   left: 0;
   animation-name: form_anim;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
 }
-@keyframes form_anim{
-  from{
+@keyframes form_anim {
+  from {
     scale: 0;
-
   }
-  to{
+  to {
     scale: 1;
   }
 }
@@ -232,10 +242,45 @@ body {
   display: none;
   color: red;
   border: 1px solid red;
+  text-align: center;
   /* margin-bottom: 15px; */
 }
 
-/* #alluser{
-  height: 100px;
-  width: 100%;
-} */
+.form h1{
+  color: white; 
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 650px) {
+  .users {
+    min-height: auto;
+    width: 99.5%;
+    margin: 20px auto;
+  }
+
+  .person {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .user .head {
+    display: none; /* Optional: hide header row on small screens */
+  }
+
+  .avatar {
+    margin-bottom: 5px;
+  }
+
+  #em {
+    margin: 0 0 5px 42px;
+  }
+
+  #garbage {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+

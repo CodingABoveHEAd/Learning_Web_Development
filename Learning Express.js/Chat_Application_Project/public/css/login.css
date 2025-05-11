@@ -6,12 +6,16 @@
 }
 
 body {
-  /* height: 100vh; */
+  background-image: url("../images/wp12240222-windows-abstract-wallpapers - Copy.png");
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(100deg, #5473ff, #0077b6, #029ebd);
+  /* background: linear-gradient(100deg, #5473ff, #0077b6, #029ebd); */
 }
 
 .headings {
@@ -153,7 +157,7 @@ button {
   .heading {
     margin-top: 50px;
   }
-  .left{
+  .left {
     width: 45%;
   }
   .left img {
@@ -164,14 +168,14 @@ button {
     /* margin-right: 40px; */
     margin-top: 185px;
   }
-  #img_text{
+  #img_text {
     font-size: 15px;
   }
-  input{
+  input {
     font-size: 16px;
   }
 
- button{
-  width: 120px;
- }
+  button {
+    width: 120px;
+  }
 }

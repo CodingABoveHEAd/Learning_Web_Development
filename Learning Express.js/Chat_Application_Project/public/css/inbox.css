@@ -6,13 +6,14 @@
 }
 
 body {
-   /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
-  /* height: 100vh; */
-  background: linear-gradient(100deg, #5473ff, #0077b6, #029ebd);
+
+  background-image: url('../images/wp12240222-windows-abstract-wallpapers - Copy.png');
+  background-size: cover;       /* Scales image to cover full screen */
+  background-repeat: no-repeat; /* Prevents tiling */
+  background-position: center;  /* Centers the image */
+  background-attachment: fixed; /* Keeps background fixed during scroll */
 }
+
 
 .headings {
   display: flex;
@@ -81,24 +82,35 @@ body {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  display: block;
-  border-radius: 50%;
-  margin: auto;
-  margin-top: 25px;
   height: 37px;
   width: 37px;
-  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+#addimg:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 20px rgba(0, 255, 150, 0.5);
 }
 
 #addimg img {
   border-radius: 50%;
-  height: 50%;
-  width: 50%;
+  height: 60%;
+  width: 60%;
+  transition: transform 0.3s ease;
 }
+
+#addimg:hover img {
+  transform: rotate(90deg);
+}
+
 
 #chat_users {
   /* display: none; */
@@ -344,23 +356,25 @@ body {
   color: rgb(168, 39, 39);
 }
 
-#allusers{
+#allusers {
   height: 66px;
   width: 100%;
   cursor: pointer;
   font-size: 21px;
-  background-color: #00b09b;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.108);
-  transition: box-shadow 0.3s ease-in-out;
-
+  color: white;
+  border: none;
+  background: linear-gradient(135deg, #00b09b, #96c93d);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
 }
 
-#allusers:hover{
-  background-color:#15ceb8;
-  padding: 11px;
-  /* font-size: 18px; */
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.674);
+#allusers:hover {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+  transform: scale(1.02);
+  box-shadow: 6px 6px 18px rgba(0, 0, 0, 0.25);
 }
+
 
 #no_user{
   color: rgba(141, 137, 137, 0.705);

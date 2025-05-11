@@ -43,15 +43,17 @@
             <% } else { %>
             <img src="/uploads/avatars/no_person.jpg" alt="person_image" />
             <% } %>
-            <p style="margin-bottom: 5px;"><%= user.name %></p>
+            <p style=" margin-bottom: 5px; "><%= user.name %></p>
           </div>
-          <p ><%= user.email %></p>
-          <div style="margin-right: 30px; margin-top: 4px">
+          <p id="em"><%= user.email %></p>
+          <div style="margin-right: 30px;">
             <img
+            title="Remove user"
               src="/images/Garbage-Closed-256.png"
               alt="remove_img"
               style="cursor: pointer"
               onclick="deleteUser('<%= user._id %>')"
+              id="garbage"
             />
           </div>
         </div>
