@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    hello world
+    <form id="ajaxform" action="/formdata">
+      <input id="name" name="name" type="text" placeholder="name" /><br /><br />
+      <input
+        id="mobile"
+        name="mobile"
+        type="number"
+        placeholder="mobile"
+      /><br /><br />
+      <button id="get" type="button" onclick="getfunc()">Get</button>
+      <button id="post" type="submit">post</button>
+      <button id="put" type="button" onclick="putfunc()">put</button>
+      <button id="delete" type="button" onclick="delfunc()">delete</button>
+    </form>
+    <p>result will be shown below</p>
+    <p id="res1"></p>
+    <p id="res2"></p>
+    <p id="common"></p>
+  </body>
+  <script>
+    const get = document.getElementById("get");
+    const post = document.getElementById("post");
+    const put = document.getElementById("put");
+    const del = document.getElementById("del");
+    const ajaxform = document.getElementById("ajaxform");
+    const res1 = document.getElementById("res1");
+    const res2 = document.getElementById("res2");
+    const common = document.getElementById("common");
+    const name = document.getElementById("name");
+    const mobile = document.getElementById("mobile");
+    ajaxform.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const formdata = new FormData(this);
+      const data = {
+        name: formdata.get("name"),
+        mobile: formdata.get("mobile"),
+      };
+      const response = await fetch("/formdata", {
+        method: "post",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      const result = await response.json();
+      res1.innerText = result.name;
+      res2.innerHTML = result.mobile;
+    });
+
+    async function getfunc() {
+      const res = await fetch("/formdata/01627242435", {
+        method: "get",
+        headers: {
+          "content-type": "application/json",
+        },
+      });
+      const result = await res.json();
+      name.value = result.name;
+      mobile.value = result.mobile;
+    }
+
+    async function putfunc() {
+      const payload = {
+        name: "nishan",
+        mobile: "01936646370",
+      };
+      const res = await fetch("/formdata", {
+        method: "put",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+      const result = await res.json();
+      name.value = result.name;
+      mobile.value = result.mobile;
+    }
+
+    async function delfunc() {
+      const res = await fetch("/formdata", {
+        method: "delete",
+        headers: {
+          "content-type": "application/json",
+        },
+      });
+      const result = await res.json();
+      common.innerText = result.message || "Deleted successfully";
+      name.value = "";
+      mobile.value = "";
+      res1.innerText = null;
+      res2.innerHTML = null;
+      
+    }
+  </script>
+</html>
